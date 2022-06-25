@@ -1,9 +1,13 @@
-import Home from "./components/Home"
-import "./App.css"
+import Header from "./Layouts/Header/Header"
+import Navbar from "./Layouts/Header/Navbar"
+import "./Scss/styles.scss"
 
 function App() {
   return (
-    <Home />
+    <>
+      <Navbar />
+      <Header />
+    </>
   )
 }
 
