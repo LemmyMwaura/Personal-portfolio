@@ -4,6 +4,10 @@ import Loader from "../components/Loader"
 const Home = () => {
   const [loading, setLoading] = useState(true)
 
+  useEffect(() => {
+    
+  })
+
   return (
     <div>
       {loading ? (
