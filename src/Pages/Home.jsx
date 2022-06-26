@@ -1,17 +1,13 @@
-import { useState } from "react"
-import Loader from "../components/Loader"
+import {useState, useEffect} from 'react'
+import Loader from '../components/Loader'
 
 const Home = () => {
   const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
-    
-  })
-
   return (
     <div>
       {loading ? (
-        <Loader setLoading={setLoading} />
+        <Loader setLoading={setLoading}/>
       ) : (
         <div>
           <h1>HOME</h1>
