@@ -6,6 +6,7 @@ const Loader = ({setLoading}) => {
   const countRef = useRef(null)
   const countRef2 = useRef(null)
   const loaderRef = useRef(null)
+  const loaderBgRef = useRef(null)
 
   const getSectionHeight = (el) => {
     const {height} = el.getBoundingClientRect()
@@ -42,12 +43,15 @@ const Loader = ({setLoading}) => {
           delay: 4,
         })
         .to(
-          loaderRef.current,
+          [loaderRef.current, loaderBgRef.current],
           {
             y: '-100%',
             duration: 0.7,
             ease: 'power3.inOut',
             onComplete: resetLoading,
+            stagger: {
+              amount: 0.1,
+            },
           },
           '<0.5',
         )
@@ -55,41 +59,44 @@ const Loader = ({setLoading}) => {
   }, [])
 
   return (
-    <div className="loader" ref={loaderRef}>
-      <div className="counter-container">
-        <ul className="counter-list" ref={countRef}>
-          <li>
-            <h3>2</h3>
-          </li>
-          <li>
-            <h3>4</h3>
-          </li>
-          <li>
-            <h3>6</h3>
-          </li>
-          <li>
-            <h3>9</h3>
-          </li>
-        </ul>
-      </div>
+    <>
+      <div className="loader-background" ref={loaderBgRef}></div>
+      <div className="loader" ref={loaderRef}>
+        <div className="counter-container">
+          <ul className="counter-list" ref={countRef}>
+            <li>
+              <h3>2</h3>
+            </li>
+            <li>
+              <h3>4</h3>
+            </li>
+            <li>
+              <h3>6</h3>
+            </li>
+            <li>
+              <h3>9</h3>
+            </li>
+          </ul>
+        </div>
 
-      <div className="counter-container">
-        <ul className="counter-list" ref={countRef2}>
-          <li>
-            <h3>3</h3>
-          </li>
-          <li>
-            <h3>9</h3>
-          </li>
-          <li>
-            <h3>8</h3>
-          </li>
-          <li>
-            <h3>9</h3>
-          </li>
-        </ul>
+        <div className="counter-container">
+          <ul className="counter-list" ref={countRef2}>
+            <li>
+              <h3>3</h3>
+            </li>
+            <li>
+              <h3>9</h3>
+            </li>
+            <li>
+              <h3>8</h3>
+            </li>
+            <li>
+              <h3>9</h3>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 
