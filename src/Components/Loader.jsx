@@ -2,7 +2,7 @@ import {timeline} from 'motion'
 import gsap from 'gsap'
 import {useEffect, useRef} from 'react'
 
-const Loader = ({ setLoading }) => {
+const Loader = ({setLoading}) => {
   const countRef = useRef(null)
   const countRef2 = useRef(null)
   const loaderRef = useRef(null)
@@ -12,6 +12,10 @@ const Loader = ({ setLoading }) => {
     const {childElementCount} = el
 
     return height / childElementCount
+  }
+
+  const resetLoading = () => {
+    setLoading(false)
   }
 
   useEffect(() => {
@@ -37,7 +41,16 @@ const Loader = ({ setLoading }) => {
           duration: 0.7,
           delay: 4,
         })
-        .to(loaderRef.current, {y: '-100%', duration: 0.7, ease:'power3.inOut', },"<0.5")
+        .to(
+          loaderRef.current,
+          {
+            y: '-100%',
+            duration: 0.7,
+            ease: 'power3.inOut',
+            onComplete: resetLoading,
+          },
+          '<0.5',
+        )
     }
   }, [])
 
