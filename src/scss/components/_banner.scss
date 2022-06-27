@@ -1,0 +1,37 @@
+.banner {
+  min-height: calc(100vh - 50px);
+  background-color: antiquewhite;
+  .banner-row {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    .banner-top--info {
+      font-weight: 500;
+      font-size: 1.4rem;
+      line-height: 1.6rem;
+      width: 320px;
+    }
+    &.center{
+      justify-content: center;
+      text-align: center;
+    }
+    .banner-row-col{
+      width: 50%;
+      display: flex;
+      align-items: center;
+    }
+    .banner-row-col.secondary{
+      justify-content: center;
+    }
+    .row-title,
+    .row-letter {
+      font-size: 12.5rem;
+      font-weight: 500;
+      position: relative;
+      letter-spacing: -0.8rem;
+      // display: inline-block;
+      white-space: nowrap;
+    }
+  }
+}
+

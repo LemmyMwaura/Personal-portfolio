@@ -1,5 +1,6 @@
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 import Loader from '../components/Loader'
+import Banner from '../Components/Banner'
 
 const Home = () => {
   const [loading, setLoading] = useState(true)
@@ -10,8 +11,7 @@ const Home = () => {
         <Loader setLoading={setLoading}/>
       ) : (
         <div>
-          <h1>HOME</h1>
-          <p>This is the home page</p>
+          <Banner />
         </div>
       )}
     </div>
