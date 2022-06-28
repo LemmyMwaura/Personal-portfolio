@@ -71,7 +71,7 @@ const Loader = ({setLoading}) => {
               <h3>4</h3>
             </li>
             <li>
-              <h3>6</h3>
+              <h3>7</h3>
             </li>
             <li>
               <h3>9</h3>
@@ -82,13 +82,13 @@ const Loader = ({setLoading}) => {
         <div className="counter-container">
           <ul className="counter-list" ref={countRef2}>
             <li>
-              <h3>3</h3>
-            </li>
-            <li>
-              <h3>9</h3>
+              <h3>4</h3>
             </li>
             <li>
               <h3>8</h3>
+            </li>
+            <li>
+              <h3>1</h3>
             </li>
             <li>
               <h3>9</h3>

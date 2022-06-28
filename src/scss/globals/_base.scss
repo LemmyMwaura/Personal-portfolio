@@ -1,5 +1,7 @@
+@use '../abstracts/' as ab;
+
 body{
-  background-color: yellow;
+  background-color: ab.$main-color;
 }
 
 a{

@@ -1,6 +1,10 @@
+@use '../abstracts/' as ab;
+
 .banner {
-  min-height: calc(100vh - 50px);
-  background-color: antiquewhite;
+  display: grid;
+  justify-content: space-around;
+  max-height: calc(100vh - 50px);
+  // background-color: #f5f5f5;
   .banner-row {
     display: flex;
     align-items: center;
@@ -11,10 +15,6 @@
       line-height: 1.6rem;
       width: 320px;
     }
-    &.center{
-      justify-content: center;
-      text-align: center;
-    }
     .banner-row-col{
       width: 50%;
       display: flex;
@@ -23,13 +23,16 @@
     .banner-row-col.secondary{
       justify-content: center;
     }
+    &.banner-bottom{
+      justify-content:flex-end;
+    }
     .row-title,
     .row-letter {
-      font-size: 12.5rem;
+      font-size: 8rem;
       font-weight: 500;
       position: relative;
+      display: inline-block;
       letter-spacing: -0.8rem;
-      // display: inline-block;
       white-space: nowrap;
     }
   }

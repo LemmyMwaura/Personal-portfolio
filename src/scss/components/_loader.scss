@@ -1,5 +1,16 @@
 @use '../abstracts' as ab;
 
+.loader-background{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  min-height: 100vh;
+  z-index: 99;
+  background-color: ab.$black;
+}
+
 .loader {
   position: fixed;
   top: 0;
