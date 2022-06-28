@@ -1,0 +1,32 @@
+@use '../abstracts/' as ab;
+
+.transition-background{
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  height: 0;
+  z-index: 87;
+  background-color: yellow;
+}
+
+.transition-main-background{
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 0;
+  z-index: 88;
+  background-color: ab.$black;
+}
+
+.transition-page-name{
+  opacity: 0;
+  font-size: 7rem;
+  color: #f5f5f5;
+}
