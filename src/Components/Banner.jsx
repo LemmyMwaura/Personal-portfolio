@@ -1,37 +1,10 @@
 import {useState, useEffect} from 'react'
 import {motion} from 'framer-motion'
-
-const banner = {
-  animate: {
-    transition: {
-      delaychildren: 0.4,
-      staggerChildren: 0.1,
-    },
-  },
-  exit: {
-    y: -200,
-    transition: {
-      ease :'easeOut',
-      duration: 1.3,
-    },
-  },
-}
-
-const letterAnimations = {
-  initial: {
-    y: 400,
-  },
-  animate: {
-    y: 0,
-    transition: {
-      ease: [0.6, 0.01, -0.05, 0.9],
-      duration: 1,
-    },
-  },
-}
+import BannerVariants from '../Animations/Variants/BannerVariants'
 
 const Banner = () => {
   const [playMarquee, setPlayMarquee] = useState(false)
+  const {banner} = BannerVariants
 
   useEffect(() => {
     setTimeout(() => {
@@ -58,6 +31,8 @@ const Banner = () => {
 }
 
 export const AnimatedLetters = ({title, disabled}) => {
+  const {banner, letterAnimations} = BannerVariants
+
   return (
     <motion.span
       className="row-title"
@@ -115,7 +90,9 @@ const BannerRowBottom = ({title}) => {
 
 const BannerRowCenter = ({title, playMarquee}) => {
   return (
-    <div className={`banner-row marquee ${playMarquee && 'animate'}`}>
+    <div
+      className={`banner-row banner-center marquee ${playMarquee && 'animate'}`}
+    >
       <div className="marquee__inner">
         <AnimatedLetters title={title} disabled />
         <AnimatedLetters title={title} />
@@ -127,7 +104,40 @@ const BannerRowCenter = ({title, playMarquee}) => {
 }
 
 const BannerFooter = () => {
-  return <div className="banner-footer"></div>
+  const {banner2, letterAnimations} = BannerVariants
+
+  return (
+    <motion.div className="banner-footer">
+      <motion.div
+        className="right"
+        variants={banner2}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+      >
+        <motion.a variants={letterAnimations} href="#">
+          Github
+        </motion.a>
+        <motion.a variants={letterAnimations} href="#">
+          Linkedln
+        </motion.a>
+        <motion.a variants={letterAnimations} href="#">
+          Home
+        </motion.a>
+      </motion.div>
+      <motion.div
+        className="left"
+        variants={banner2}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+      >
+        <motion.a variants={letterAnimations} href="#">
+          2022
+        </motion.a>
+      </motion.div>
+    </motion.div>
+  )
 }
 
 export default Banner
