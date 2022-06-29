@@ -3,12 +3,17 @@
 .banner {
   display: grid;
   justify-content: space-around;
-  max-height: calc(100vh - 50px);
-  // background-color: #f5f5f5;
+  min-height: calc(100vh - 4rem);
+ 
   .banner-row {
     display: flex;
     align-items: center;
     overflow: hidden;
+    font-family: 'Cormorant Upright', serif;
+    border-bottom: 3px solid rgba(0,0,0,1);
+    border-radius: 0.3rem;
+    cursor: pointer;
+
     .banner-top--info {
       font-weight: 500;
       font-size: 1.4rem;
@@ -28,11 +33,11 @@
     }
     .row-title,
     .row-letter {
-      font-size: 8rem;
+      font-size: 10rem;
       font-weight: 500;
       position: relative;
       display: inline-block;
-      letter-spacing: -0.8rem;
+      letter-spacing: -0.7rem;
       white-space: nowrap;
     }
   }

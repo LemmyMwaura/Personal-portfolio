@@ -8,6 +8,13 @@ const banner = {
       staggerChildren: 0.1,
     },
   },
+  exit: {
+    y: -200,
+    transition: {
+      ease :'easeOut',
+      duration: 1.3,
+    },
+  },
 }
 
 const letterAnimations = {
@@ -33,18 +40,24 @@ const Banner = () => {
   }, [])
 
   return (
-    <motion.div className="banner" variants={banner}>
-      <BannerRowTop title={'Lemmy'} />
+    <motion.div
+      className="banner"
+      variants={banner}
+      animate="animate"
+      exit="exit"
+    >
+      <BannerRowTop title={'Full-Stack'} />
       <BannerRowCenter
-        title={'Full-Stack Developer'}
+        title={'Stephen-Lemmy-Mwaura'}
         playMarquee={playMarquee}
       />
-      <BannerRowBottom title={'Mwaura'} />
+      <BannerRowBottom title={'Developer'} />
+      <BannerFooter />
     </motion.div>
   )
 }
 
-const AnimatedLetters = ({title, disabled}) => {
+export const AnimatedLetters = ({title, disabled}) => {
   return (
     <motion.span
       className="row-title"
@@ -92,8 +105,8 @@ const BannerRowTop = ({title}) => {
 
 const BannerRowBottom = ({title}) => {
   return (
-    <div className="banner-row">
-      <div>
+    <div className="banner-row banner-bottom">
+      <div className="banner-bottom-wrapper">
         <AnimatedLetters title={title} />
       </div>
     </div>
@@ -111,6 +124,10 @@ const BannerRowCenter = ({title, playMarquee}) => {
       </div>
     </div>
   )
+}
+
+const BannerFooter = () => {
+  return <div className="banner-footer"></div>
 }
 
 export default Banner
