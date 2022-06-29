@@ -1,15 +1,24 @@
-import React from 'react'
-import { Routes, Route, } from 'react-router-dom'
-// import Loader from '../../Components/Loader'
+import { Routes, Route, useLocation } from 'react-router-dom'
+import { AnimatePresence } from 'framer-motion';
+
+//Components
 import Home from '../../Pages/Home'
+import Contact from '../../Pages/Contact'
+import MindMap from '../../Pages/MindMap'
+import Projects from '../../Pages/Projects'
 
 function Header() {
+  const location = useLocation()
+
   return (
-    <div>
-      <Routes>
+    <AnimatePresence>
+      <Routes location={location} key={location.key}>
         <Route path="/" element={<Home/>} />
+        <Route path="/mind-map" element={<MindMap/>} />
+        <Route path="/projects" element={<Projects/>} />
+        <Route path="/contact" element={<Contact/>} />
       </Routes>
-    </div>
+    </AnimatePresence>
   )
 }
 
