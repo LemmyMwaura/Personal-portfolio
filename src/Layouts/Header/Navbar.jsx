@@ -1,24 +1,36 @@
-import { NavLink } from 'react-router-dom';
+import {NavLink, useLocation} from 'react-router-dom'
+import {motion} from 'framer-motion'
 
 const Navbar = () => {
-  // const { user } = useContext(AuthContext)
-  const navLinkStyles = ({ isActive }) => {
-    return {
-      fontWeight: isActive ? 'bold' : 'normal',
-      textDecoration: isActive ? 'none' : 'underline'
-    }
-  }
+  const location = useLocation()
+  const countDelay = () => (location.pathname === '/' ? 6 : 3)
 
   return (
-    <nav className='primary-nav'>
-      <NavLink style={navLinkStyles} to='/'>Home</NavLink>
-      {/* <NavLink style={navLinkStyles} to='/about'>About</NavLink>
-      <NavLink style={navLinkStyles} to='/products'>Products</NavLink>
-      <NavLink style={navLinkStyles} to='/profile'>Profile</NavLink>
-      {!user && (
-        <NavLink style={navLinkStyles} to='/login'>Login</NavLink>
-      )} */}
-    </nav>
+    <motion.div
+      key={location.key}
+      className="primary-nav"
+      initial={{y: -200, opacity: 0}}
+      animate={{y: 0, opacity: 1}}
+      transition={{
+        ease: 'easeInOut',
+        duration: 1,
+        delay: countDelay(),
+      }}
+      exit={{
+        y: -20,
+        transition: {
+          ease: 'easeOut',
+          duration: 1.5,
+        },
+      }}
+    >
+      <NavLink to="/">LEMMY</NavLink>
+      <div className="nav-group">
+        <NavLink to="/mind-map">MIND-MAP</NavLink>
+        <NavLink to="/projects">PROJECTS</NavLink>
+        <NavLink to="/contact">CONTACT</NavLink>
+      </div>
+    </motion.div>
   )
 }
 

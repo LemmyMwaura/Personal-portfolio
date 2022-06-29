@@ -1,5 +1,24 @@
+@use '../abstracts/' as ab;
+
 .primary-nav{
   height: 3rem;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+
+  .active::after{
+    width: 100%;
+  }
+
+  a{
+    color:ab.$all-black;
+    font-weight: bold;
+  }
+
+  .nav-group{
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+  }
 }
