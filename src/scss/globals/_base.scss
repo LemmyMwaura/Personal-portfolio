@@ -1,9 +1,26 @@
 @use '../abstracts/' as ab;
 
 body{
-  background-color: ab.$main-color;
+  background-color: ab.$orange;
+  padding: 0 2rem;
 }
 
 a{
   text-decoration: none;
+  position: relative;
+}
+
+a::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background-color: ab.$all-black;
+  transition: width 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+a:hover::after{
+  width: 100%;
 }
