@@ -1,11 +1,8 @@
 import {timeline} from 'motion'
-import gsap from 'gsap'
 import {useEffect, useRef} from 'react'
-import {useDispatch} from 'react-redux'
-import {hideLoader} from '../Features/LoaderSlice'
+import loaderAnimation from '../Animations/Timelines/Loader'
 
 const Loader = () => {
-  const dispatch = useDispatch()
   const countRef = useRef(null)
   const countRef2 = useRef(null)
   const loaderRef = useRef(null)
@@ -34,29 +31,7 @@ const Loader = () => {
         defaultOptions: {easing: [0.77, 0, 0.175, 1], duration: 1},
       })
 
-      gsap
-        .timeline({
-          onComplete: () => {
-            dispatch(hideLoader())
-          },
-        })
-        .to([countRef.current, countRef2.current], {
-          opacity: 0,
-          duration: 0.7,
-          delay: 4,
-        })
-        .to(
-          [loaderRef.current, loaderBgRef.current],
-          {
-            y: '-100%',
-            duration: 0.7,
-            ease: 'power3.inOut',
-            stagger: {
-              amount: 0.1,
-            },
-          },
-          '<0.5',
-        )
+      loaderAnimation(countRef, countRef2, loaderRef, loaderBgRef)
     }
   }, [])
 

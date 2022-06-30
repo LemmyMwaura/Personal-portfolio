@@ -10,7 +10,7 @@ const Home = () => {
       {showLoader ? (
         <Loader/>
       ) : (
-        <div>
+        <div className='container'>
           <Banner />
         </div>
       )}
