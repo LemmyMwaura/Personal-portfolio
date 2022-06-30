@@ -8,7 +8,11 @@
   margin: 0 auto;
 
   .active::after{
-    width: 100%;
+    width: 50%;
+  }
+
+  .active::before{
+    width: 50%;
   }
 
   a{

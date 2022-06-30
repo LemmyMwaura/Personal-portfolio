@@ -10,10 +10,9 @@ a{
   position: relative;
 }
 
-a::after{
+a::after, a::before{
   content: '';
   position: absolute;
-  left: 0;
   bottom: -5px;
   width: 0;
   height: 2px;
@@ -21,6 +20,18 @@ a::after{
   transition: width 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
+a::after{
+  right: 50%
+}
+
+a::before{
+  left: 50%;
+}
+
 a:hover::after{
-  width: 100%;
+  width: 50%;
+}
+
+a:hover::before{
+  width: 50%;
 }
