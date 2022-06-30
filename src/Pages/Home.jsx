@@ -1,14 +1,14 @@
-import {useState} from 'react'
 import Loader from '../components/Loader'
 import Banner from '../Components/Banner'
+import {useSelector} from 'react-redux'
 
 const Home = () => {
-  const [loading, setLoading] = useState(true)
+  const showLoader = useSelector(({loader}) => loader.show)
 
   return (
     <div>
-      {loading ? (
-        <Loader setLoading={setLoading}/>
+      {showLoader ? (
+        <Loader/>
       ) : (
         <div>
           <Banner />

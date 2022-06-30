@@ -1,8 +1,11 @@
 import {timeline} from 'motion'
 import gsap from 'gsap'
 import {useEffect, useRef} from 'react'
+import {useDispatch} from 'react-redux'
+import {hideLoader} from '../Features/LoaderSlice'
 
-const Loader = ({setLoading}) => {
+const Loader = () => {
+  const dispatch = useDispatch()
   const countRef = useRef(null)
   const countRef2 = useRef(null)
   const loaderRef = useRef(null)
@@ -13,10 +16,6 @@ const Loader = ({setLoading}) => {
     const {childElementCount} = el
 
     return height / childElementCount
-  }
-
-  const resetLoading = () => {
-    setLoading(false)
   }
 
   useEffect(() => {
@@ -36,7 +35,11 @@ const Loader = ({setLoading}) => {
       })
 
       gsap
-        .timeline()
+        .timeline({
+          onComplete: () => {
+            dispatch(hideLoader())
+          },
+        })
         .to([countRef.current, countRef2.current], {
           opacity: 0,
           duration: 0.7,
@@ -48,7 +51,6 @@ const Loader = ({setLoading}) => {
             y: '-100%',
             duration: 0.7,
             ease: 'power3.inOut',
-            onComplete: resetLoading,
             stagger: {
               amount: 0.1,
             },
