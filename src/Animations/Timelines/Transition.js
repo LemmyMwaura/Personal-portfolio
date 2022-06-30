@@ -1,4 +1,4 @@
-import gsap from 'gsap';
+import gsap from 'gsap'
 
 const showMenu = (main, sec, name) => {
   gsap
@@ -8,17 +8,27 @@ const showMenu = (main, sec, name) => {
       duration: 0.8,
       ease: 'power3.inOut',
       stagger: {
-        amount: 0.07,
+        amount: 0.2,
       },
     })
-    .to(name.current, {opacity: 1, duration: 1, ease: 'power3.inOut'})
+    .to(
+      name.current,
+      {opacity: 1, duration: 0.4, ease: 'power3.inOut'},
+      '-0.4<',
+    )
 }
 
 const hideMenu = (main, sec, name) => {
   gsap
-    .timeline()
+    .timeline({
+      onComplete: () => {
+        gsap.to([main.current, sec.current, name.current], {
+          css: {display: 'none'},
+        })
+      },
+    })
     .to([main.current, sec.current], {
-      delay: 2,
+      delay: 3,
       duration: 0.8,
       height: 0,
       ease: 'power3.inOut',
@@ -29,15 +39,14 @@ const hideMenu = (main, sec, name) => {
     .to(
       name.current,
       {
-        css: {
-          display: 'None',
-        },
-        duration: 0.2,
+        opacity: 0,
+        duration: 0.4,
         ease: 'power3.inOut',
       },
       '<',
     )
 }
+
 const menuTransitions = {
   showMenu,
   hideMenu,

@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react'
 import {motion} from 'framer-motion'
 import BannerVariants from '../Animations/Variants/BannerVariants'
+import SvgArrow from '../Assets/SVG/Arrow.jsx'
 
 const Banner = () => {
   const [playMarquee, setPlayMarquee] = useState(false)
@@ -81,6 +82,9 @@ const BannerRowTop = ({title}) => {
 const BannerRowBottom = ({title}) => {
   return (
     <div className="banner-row banner-bottom">
+      <div className="svg-wrapper">
+        <SvgArrow/>
+      </div>
       <div className="banner-bottom-wrapper">
         <AnimatedLetters title={title} />
       </div>
