@@ -1,9 +1,21 @@
 import {NavLink, useLocation} from 'react-router-dom'
 import {motion} from 'framer-motion'
+import {useEffect} from 'react'
+import {useDispatch, useSelector} from 'react-redux'
+import {showTransition} from '../../Features/TransitionHomeSlice'
 
 const Navbar = () => {
   const location = useLocation()
-  const countDelay = () => (location.pathname === '/' ? 6 : 3)
+  const dispatch = useDispatch()
+  const show = useSelector(({transition}) => transition.show)
+  const countDelay = () => (location.pathname === '/' ? 3 : 3)
+
+  useEffect(() => {
+    if (show) return
+    if (location.pathname !== '/') {
+      dispatch(showTransition())
+    }
+  }, [location.pathname])
 
   return (
     <motion.div
