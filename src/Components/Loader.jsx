@@ -1,8 +1,13 @@
 import {timeline} from 'motion'
 import {useEffect, useRef} from 'react'
+import {useDispatch} from 'react-redux'
 import loaderAnimation from '../Animations/Timelines/Loader'
 
+//Slices
+import {hideLoader} from '../Features/LoaderSlice'
+
 const Loader = () => {
+  const dispatch = useDispatch()
   const countRef = useRef(null)
   const countRef2 = useRef(null)
   const loaderRef = useRef(null)
@@ -13,6 +18,10 @@ const Loader = () => {
     const {childElementCount} = el
 
     return height / childElementCount
+  }
+
+  const resetLoader = () => {
+    dispatch(hideLoader())
   }
 
   useEffect(() => {
@@ -31,7 +40,7 @@ const Loader = () => {
         defaultOptions: {easing: [0.77, 0, 0.175, 1], duration: 1},
       })
 
-      loaderAnimation(countRef, countRef2, loaderRef, loaderBgRef)
+      loaderAnimation(countRef, countRef2, loaderRef, loaderBgRef, resetLoader)
     }
   }, [])
 
