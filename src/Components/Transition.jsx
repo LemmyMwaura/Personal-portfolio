@@ -1,20 +1,27 @@
 import {useEffect, useRef} from 'react'
+import {useDispatch} from 'react-redux'
+
+//Animations
 import menuTransitions from '../Animations/Timelines/Transition'
 
-const Transition = ({pagename, setShowInfo}) => {
+//Slices
+import {showPage} from '../Features/ShowPageSlice'
+
+const Transition = ({pagename}) => {
   const {showMenu, hideMenu} = menuTransitions
   const transition = useRef(null)
   const secTransition = useRef(null)
   const page = useRef(null)
+  const dispatch = useDispatch()
+
+  const showPageData = () => {
+    dispatch(showPage())
+  }
 
   useEffect(() => {
     showMenu(transition, secTransition, page)
-    hideMenu(transition, secTransition, page)
-
-    setTimeout(() => {
-      setShowInfo(true)
-    }, 2000)
-  }, [transition, secTransition, page, setShowInfo])
+    hideMenu(transition, secTransition, page, showPageData)
+  }, [transition, secTransition, page, showPageData])
 
   return (
     <div>

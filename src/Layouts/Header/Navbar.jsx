@@ -1,20 +1,25 @@
 import {NavLink, useLocation} from 'react-router-dom'
 import {motion} from 'framer-motion'
 import {useEffect} from 'react'
-import {useDispatch, useSelector} from 'react-redux'
+import {useDispatch} from 'react-redux'
+
+//Slices
 import {showTransition} from '../../Features/TransitionHomeSlice'
+import {hidePage} from '../../Features/ShowPageSlice'
 
 const Navbar = () => {
   const location = useLocation()
   const dispatch = useDispatch()
-  const show = useSelector(({transition}) => transition.show)
-  const countDelay = () => (location.pathname === '/' ? 3 : 3)
+  const countDelay = () => (location.pathname === '/' ? 2 : 2)
 
   useEffect(() => {
-    if (show) return
     if (location.pathname !== '/') {
       dispatch(showTransition())
     }
+
+    setTimeout(() => {
+      dispatch(hidePage())
+    }, 2000)
   }, [location.pathname])
 
   return (

@@ -5,7 +5,7 @@ const initialState = {
 }
 
 const transitionSlice = createSlice({
-  name: 'loader',
+  name: 'transition',
   initialState,
   reducers: {
     showTransition: (state) => {

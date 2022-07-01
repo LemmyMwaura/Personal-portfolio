@@ -5,6 +5,7 @@ import loaderAnimation from '../Animations/Timelines/Loader'
 
 //Slices
 import {hideLoader} from '../Features/LoaderSlice'
+import {showPage} from '../Features/ShowPageSlice'
 
 const Loader = () => {
   const dispatch = useDispatch()
@@ -22,6 +23,7 @@ const Loader = () => {
 
   const resetLoader = () => {
     dispatch(hideLoader())
+    dispatch(showPage())
   }
 
   useEffect(() => {
