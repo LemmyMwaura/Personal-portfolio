@@ -1,0 +1,46 @@
+@use '../abstracts/' as ab;
+@use '../utils/' as util;
+
+.menu {
+  display: none;
+
+  @include util.breakpoint-down(medium) {
+    display: block;
+    position: relative;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1rem;
+    padding: 0;
+    margin: 0;
+    color: ab.$all-black;
+    font-weight: bold;
+    cursor: pointer;
+    
+    &::after, &::before{
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      width: 0;
+      height: 2px;
+      background-color: ab.$all-black;
+      transition: width 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+    
+    &::after{
+      right: 50%
+    }
+    
+    &::before{
+      left: 50%;
+    }
+    
+    &:hover::after{
+      width: 50%;
+    }
+    
+    &:hover::before{
+      width: 50%;
+    }
+  }
+}

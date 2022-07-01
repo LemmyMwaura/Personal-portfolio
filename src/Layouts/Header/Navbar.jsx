@@ -1,16 +1,22 @@
-import {NavLink, useLocation} from 'react-router-dom'
-import {motion} from 'framer-motion'
+import {useLocation} from 'react-router-dom'
 import {useEffect} from 'react'
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
+import {NavLink} from 'react-router-dom'
 
 //Slices
 import {showTransition} from '../../Features/TransitionHomeSlice'
 import {hidePage} from '../../Features/ShowPageSlice'
+import {hideMobileMenu} from '../../Features/MobileMenuSlice'
+
+//navigations
+import MobileNav from './MobileNav'
+import DesktopNav from './DesktopNav'
+import HamburgerMenu from '../../Components/HamburgerMenu'
 
 const Navbar = () => {
+  const showMobileMenu = useSelector(({showMobileMenu}) => showMobileMenu.show)
   const location = useLocation()
   const dispatch = useDispatch()
-  const countDelay = () => (location.pathname === '/' ? 2 : 2)
 
   useEffect(() => {
     if (location.pathname !== '/') {
@@ -23,31 +29,12 @@ const Navbar = () => {
   }, [location.pathname])
 
   return (
-    <motion.div
-      key={location.key}
-      className="primary-nav"
-      initial={{y: -200, opacity: 0}}
-      animate={{y: 0, opacity: 1}}
-      transition={{
-        ease: 'easeInOut',
-        duration: 1,
-        delay: countDelay(),
-      }}
-      exit={{
-        y: -20,
-        transition: {
-          ease: 'easeOut',
-          duration: 1.5,
-        },
-      }}
-    >
+    <div className="navigation">
       <NavLink to="/">LEMMY</NavLink>
-      <div className="nav-group">
-        <NavLink to="/mind-map">MIND-MAP</NavLink>
-        <NavLink to="/projects">PROJECTS</NavLink>
-        <NavLink to="/contact">CONTACT</NavLink>
-      </div>
-    </motion.div>
+      <HamburgerMenu />
+      <DesktopNav />
+      {showMobileMenu && <MobileNav />}
+    </div>
   )
 }
 
