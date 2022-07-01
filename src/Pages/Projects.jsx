@@ -1,13 +1,13 @@
-import {useState} from 'react'
+import {useSelector} from 'react-redux'
 import Transition from '../Components/Transition'
 
 const Projects = () => {
-  const [showInfo, setShowInfo] = useState(false)
+  const showPageData = useSelector(({showPage}) => showPage.show)
 
   return (
     <div>
-      <Transition pagename="Projects" setShowInfo={setShowInfo}/>
-      {showInfo && <div className="projects-container">Projects</div>}
+      <Transition pagename="Projects"/>
+      {showPageData && <div className="projects-container">Projects</div>}
     </div>
   )
 }

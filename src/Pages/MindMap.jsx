@@ -1,13 +1,13 @@
-import {useState} from 'react'
 import Transition from '../Components/Transition'
+import {useSelector} from 'react-redux'
 
 const MindMap = () => {
-  const [showInfo, setShowInfo] = useState(false)
+  const showPageData = useSelector(({showPage}) => showPage.show)
 
   return (
     <div>
-      <Transition pagename="MindMap" setShowInfo={setShowInfo} />
-      {showInfo && <div className="mind-map-container">Mindmap</div>}
+      <Transition pagename="MIND-MAP"/>
+      {showPageData && <div className="mindmap-container">Mind-map</div>}
     </div>
   )
 }
