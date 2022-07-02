@@ -24,12 +24,12 @@
 }
 
 .transition-page-name{
-  opacity: 0;
-  font-size: 7rem;
+  font-size: clamp(4rem, calc(3rem + 6vw), 10rem);
   font-family: inherit;
   color: ab.$sec-color;
   padding: 2rem;
   margin-left: 2rem;
   border-radius: 0.5rem;
   background-color: ab.$black;
+  clip-path: inset(100% 0% 0% 0%);
 }

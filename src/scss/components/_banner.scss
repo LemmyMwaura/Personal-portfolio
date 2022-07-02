@@ -63,9 +63,12 @@
             height: 3rem
           }
           @include util.breakpoint-down(extraSmall){
-            height: 2.5rem
+            height: 2.25rem
           }
         }
+      }
+      .row-title{
+        margin-right: 1rem;
       }
     }
     .row-title,
@@ -77,6 +80,10 @@
       display: inline-block;
       letter-spacing: -0.7rem;
       white-space: nowrap;
+
+      @include util.breakpoint-down(extraSmall){
+        font-size: 4rem;
+      }
     }
   }
 
