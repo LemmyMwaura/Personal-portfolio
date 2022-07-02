@@ -16,9 +16,6 @@ const menu = {
     transition: {
       ease: 'easeOut',
       duration: 1,
-      onAnimationEnd: () => {
-        console.log('end')
-      }
     },
   },
 }

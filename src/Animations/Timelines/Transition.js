@@ -12,9 +12,11 @@ const showMenu = (main, sec, name) => {
       },
     })
     .to(
-      name.current,
-      {opacity: 1, duration: 0.4, ease: 'power3.inOut'},
-      '0.3<',
+      name.current,{
+        "clip-path": "inset(0% 0% 0% 0%)",
+        duration: 1,
+        ease: 'power3.inOut',
+      },
     )
 }
 
@@ -29,7 +31,7 @@ const hideMenu = (main, sec, name, showPageData) => {
       },
     })
     .to([main.current, sec.current], {
-      delay: 2,
+      delay: 2.2,
       duration: 0.8,
       transform:'translateY(-100%)',
       ease: 'power3.inOut',

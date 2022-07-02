@@ -23,6 +23,8 @@ const Navbar = () => {
       dispatch(showTransition())
     }
 
+    dispatch(hideMobileMenu())
+    
     setTimeout(() => {
       dispatch(hidePage())
     }, 2000)
