@@ -1,17 +1,23 @@
 @use '../abstracts/' as ab;
+@use '../utils/' as util;
 
 .banner {
   display: grid;
   justify-content: space-between;
   min-height: calc(100vh - 4rem);
   overflow: hidden;
- 
+
+  @include util.breakpoint-down(medium){
+    min-height: calc(80vh - 4rem);
+  }
+
   .banner-row {
     display: flex;
     align-items: center;
+    gap: 20px;
     overflow: hidden;
     font-family: 'Cormorant Upright', serif;
-    border-bottom: 3px solid rgba(0,0,0,1);
+    border-bottom: 3px solid ab.$all-black;
     border-radius: 0.3rem;
     cursor: pointer;
 
@@ -20,6 +26,12 @@
       font-size: 1.4rem;
       line-height: 1.6rem;
       width: 320px;
+      @include util.breakpoint-down(medium){
+        width: 300px;
+      }
+      @include util.breakpoint-down(small){
+        display: none;
+      }
     }
     .banner-row-col{
       width: 50%;
@@ -38,18 +50,28 @@
         align-items: center;
         justify-content: center;
         .arrow-svg{
-          height:8rem;
+          max-height: 7rem;
           margin: 0 auto;
           stroke: ab.$all-black;
           stroke-width: 2px;
           stroke-linejoin: round;
           stroke-linecap: round;
+          @include util.breakpoint-down(small){
+            height: 3.5rem
+          }
+          @include util.breakpoint-down(midSmall){
+            height: 3rem
+          }
+          @include util.breakpoint-down(extraSmall){
+            height: 2.5rem
+          }
         }
       }
     }
     .row-title,
     .row-letter {
-      font-size: 10rem;
+      font-size: clamp(5rem, calc(3rem + 8vw), 12rem);
+      margin-right: 0.2rem;
       font-weight: 500;
       position: relative;
       display: inline-block;
@@ -72,6 +94,11 @@
     .right{
       display: flex;
       gap:50px;
+
+      @include util.breakpoint-down(small){
+        font-size: 0.9rem;
+        gap:30px
+      }
     }
 
     .left{
