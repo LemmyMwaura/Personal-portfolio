@@ -1,0 +1,6 @@
+@use '../abstracts' as ab;
+
+.projects-container{
+  min-height: 100vh;
+  background-color: ab.$main-color;
+}

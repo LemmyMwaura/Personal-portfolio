@@ -1,0 +1,6 @@
+@use '../abstracts' as ab;
+
+.mindmap-container{
+  min-height: 100vh;
+  background-color: ab.$orange;
+}
