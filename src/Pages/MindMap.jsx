@@ -38,7 +38,7 @@ const MindMap = () => {
     <div>
       {showTransition && <Transition pagename="MIND-MAP" />}
       {showPageData && (
-        <div ref={mindRef} className="mindmap-container data-scroll-section">
+        <div ref={mindRef} data-scroll-section className="mindmap-container ">
           Mind-map
         </div>
       )}

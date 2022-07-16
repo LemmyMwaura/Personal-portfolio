@@ -41,6 +41,7 @@ const Contact = () => {
         <>
           <div
             ref={contactRef}
+            data-scroll-section
             className="contact-container data-scroll-section"
           >
             Contact

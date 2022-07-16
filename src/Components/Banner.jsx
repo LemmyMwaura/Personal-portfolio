@@ -15,7 +15,8 @@ const Banner = () => {
 
   return (
     <motion.div
-      className="banner"
+      data-scroll-section
+      className="banner "
       variants={banner}
       animate="animate"
       exit="exit"

@@ -41,6 +41,7 @@ const Projects = () => {
         <>
           <div
             ref={projectsRef}
+            data-scroll-section
             className="projects-container data-scroll-section"
           >
             Projects

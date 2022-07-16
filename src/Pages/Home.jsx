@@ -47,7 +47,8 @@ const Home = () => {
           {showPageData && (
             <div
               ref={scrollRef}
-              className="data-scroll-container"
+              data-scroll-container
+              className=""
               id="scroller"
             >
               <div className="banner-wrapper">
