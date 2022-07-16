@@ -1,6 +1,6 @@
 {
   "arrowParens": "always",
-  "bracketSpacing": false,
+  "bracketSpacing": true,
   "htmlWhitespaceSensitivity": "css",
   "insertPragma": false,
   "jsxBracketSameLine": false,
@@ -10,7 +10,7 @@
   "quoteProps": "as-needed",
   "requirePragma": false,
   "semi": false,
-  "singleQuote": true,
+  "singleQuote": false,
   "tabWidth": 2,
   "trailingComma": "all",
   "useTabs": false
