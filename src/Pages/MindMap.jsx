@@ -25,21 +25,28 @@ const MindMap = () => {
   }, [location.pathname])
 
   useEffect(() => {
-    if (showPageData) {
-      setTimeout(() => {
-        locoScrollRef.current?.update()
-      }, 100)
-    }
+    if (!showPageData) return
 
-    return () => clearTimeout()
+    const setInterval = setTimeout(() => {
+      locoScrollRef.current?.update()
+    }, 300)
+
+    return () => clearTimeout(setInterval)
   }, [locoScrollRef.current, showPageData])
 
   return (
     <div>
       {showTransition && <Transition pagename="MIND-MAP" />}
       {showPageData && (
-        <div ref={mindRef} data-scroll-section className="mindmap-container ">
-          Mind-map
+        <div
+          ref={mindRef}
+          data-scroll-section
+          data-scroll-speed="-1"
+          className="mindmap-container "
+        >
+          <div className="mindmap-content">
+            
+          </div>
         </div>
       )}
     </div>

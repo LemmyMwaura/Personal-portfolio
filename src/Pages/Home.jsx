@@ -28,13 +28,13 @@ const Home = () => {
   )
 
   useEffect(() => {
-    if (showPageData) {
-      setTimeout(() => {
-        locoScrollRef.current?.update()
-      }, 100)
-    }
+    if (!showPageData) return
 
-    return () => clearTimeout()
+    const setInterval = setTimeout(() => {
+      locoScrollRef.current?.update()
+    }, 300)
+
+    return () => clearTimeout(setInterval)
   }, [locoScrollRef.current, showPageData])
 
   return (

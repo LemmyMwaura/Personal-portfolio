@@ -1,16 +1,18 @@
-import {useState, useEffect} from 'react'
-import {motion} from 'framer-motion'
-import BannerVariants from '../Animations/Variants/BannerVariants'
-import SvgArrow from '../Assets/SVG/Arrow.jsx'
+import { useState, useEffect } from "react"
+import { motion } from "framer-motion"
+import BannerVariants from "../Animations/Variants/BannerVariants"
+import SvgArrow from "../Assets/SVG/Arrow.jsx"
 
 const Banner = () => {
   const [playMarquee, setPlayMarquee] = useState(false)
-  const {banner} = BannerVariants
+  const { banner } = BannerVariants
 
   useEffect(() => {
-    setTimeout(() => {
+    const marqueeTimeout = setTimeout(() => {
       setPlayMarquee(true)
     }, 2000)
+
+    return () => clearTimeout(marqueeTimeout)
   }, [])
 
   return (
@@ -21,19 +23,19 @@ const Banner = () => {
       animate="animate"
       exit="exit"
     >
-      <BannerRowTop title={'Full-Stack'} />
+      <BannerRowTop title={"Full-Stack"} />
       <BannerRowCenter
-        title={'Stephen-Lemmy-Mwaura'}
+        title={"Stephen-Lemmy-Mwaura"}
         playMarquee={playMarquee}
       />
-      <BannerRowBottom title={'Developer'} />
+      <BannerRowBottom title={"Developer"} />
       <BannerFooter />
     </motion.div>
   )
 }
 
-export const AnimatedLetters = ({title, disabled}) => {
-  const {banner, letterAnimations} = BannerVariants
+export const AnimatedLetters = ({ title, disabled }) => {
+  const { banner, letterAnimations } = BannerVariants
 
   return (
     <motion.span
@@ -55,7 +57,7 @@ export const AnimatedLetters = ({title, disabled}) => {
   )
 }
 
-const BannerRowTop = ({title}) => {
+const BannerRowTop = ({ title }) => {
   return (
     <div className="banner-row">
       <div className="banner-row-col ">
@@ -63,10 +65,10 @@ const BannerRowTop = ({title}) => {
       </div>
       <motion.div
         className="banner-row-col secondary"
-        initial={{opacity: 0, y: 80}}
-        animate={{opacity: 1, y: 0}}
+        initial={{ opacity: 0, y: 80 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{
-          ease: 'easeInOut',
+          ease: "easeInOut",
           duration: 1,
           delay: 0.4,
         }}
@@ -80,11 +82,11 @@ const BannerRowTop = ({title}) => {
   )
 }
 
-const BannerRowBottom = ({title}) => {
+const BannerRowBottom = ({ title }) => {
   return (
     <div className="banner-row banner-bottom">
       <div className="svg-wrapper">
-        <SvgArrow/>
+        <SvgArrow />
       </div>
       <div className="banner-bottom-wrapper">
         <AnimatedLetters title={title} />
@@ -93,10 +95,10 @@ const BannerRowBottom = ({title}) => {
   )
 }
 
-const BannerRowCenter = ({title, playMarquee}) => {
+const BannerRowCenter = ({ title, playMarquee }) => {
   return (
     <div
-      className={`banner-row banner-center marquee ${playMarquee && 'animate'}`}
+      className={`banner-row banner-center marquee ${playMarquee && "animate"}`}
     >
       <div className="marquee__inner">
         <AnimatedLetters title={title} disabled />
@@ -109,7 +111,7 @@ const BannerRowCenter = ({title, playMarquee}) => {
 }
 
 const BannerFooter = () => {
-  const {banner2, letterAnimations} = BannerVariants
+  const { banner2, letterAnimations } = BannerVariants
 
   return (
     <motion.div className="banner-footer">
