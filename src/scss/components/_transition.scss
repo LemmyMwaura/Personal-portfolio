@@ -1,35 +1,42 @@
 @use '../abstracts/' as ab;
 
-.transition-background{
+.transition-background {
   position: fixed;
   left: 0;
   bottom: 0;
   right: 0;
   height: 0;
   z-index: 87;
-  background-color: ab.$black;
+  background-color: ab.$sec-color;
 }
 
-.transition-main-background{
+.transition-main-background {
   position: fixed;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  bottom:0;
+  bottom: 0;
   left: 0;
   right: 0;
   height: 0;
   z-index: 88;
-  background-color: ab.$main-color;
+  background-color: ab.$dark-brown;
+
+  .transition-page-name {
+    font-size: clamp(4rem, calc(3rem + 5vw), 8rem);
+    font-family: "Syncopate", sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: ab.$all-black;
+    padding: 2rem;
+    margin-left: 2rem;
+    border-radius: 0.2rem;
+    background-color: ab.$off-white;
+    clip-path: inset(0% 0% 0% 100%);
+  }
 }
 
-.transition-page-name{
-  font-size: clamp(4rem, calc(3rem + 6vw), 10rem);
-  font-family: inherit;
-  color: ab.$sec-color;
-  padding: 2rem;
-  margin-left: 2rem;
-  border-radius: 0.5rem;
-  background-color: ab.$black;
-  clip-path: inset(100% 0% 0% 0%);
+.transition-background::-webkit-scrollbar,
+.transition-main-background::-webkit-scrollbar {
+  display: none;
 }

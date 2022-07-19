@@ -1,8 +1,7 @@
 @use '../abstracts/' as ab;
 
 body{
-  background-color: ab.$orange;
-  padding: 0 2rem;
+  background-color: ab.$main-color;
 }
 
 .container{
@@ -39,4 +38,8 @@ a:hover::after{
 
 a:hover::before{
   width: 50%;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }

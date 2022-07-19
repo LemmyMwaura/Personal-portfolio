@@ -5,11 +5,11 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 8rem;
-  min-height: calc(100vh - 3rem);
+  // min-height: calc(100vh - 3rem);
   padding: 2rem;
   background-color: hsl(49, 44%, 73%);
   color: ab.$all-black;
-  font-family: "Cardo", serif;
+  font-family: "Syncopate", sans-serif;
 
   .mindmap-content {
     display: flex;
@@ -18,6 +18,7 @@
 
     h3 {
       font-size: 6rem;
+      font-weight: bold;
       justify-self: center;
       font-family: "Cormorant Upright", serif;
     }
@@ -30,17 +31,28 @@
       gap: 1rem;
 
       .desc {
-        width: 40vw;
-        align-self: center;
-        font-size: 1.1rem;
-        font-weight: 500;
-        line-height: 1.3;
+        width: 50vw;
+        display: grid;
+        gap: 3rem;
+
+        .details {
+          width: 100%;
+          display: flex;
+          gap: 1rem;
+          font-weight: 500;
+          line-height: 1.3;
+
+          span {
+            font-size: 1rem;
+          }
+        }
       }
 
       .underline-wrapper {
         display: flex;
         align-items: center;
         justify-content: center;
+
         .underline-svg {
           width: 90%;
           max-height: 4rem;
