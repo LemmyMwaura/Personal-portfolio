@@ -7,14 +7,10 @@ import ScrollTrigger from "gsap/ScrollTrigger"
 //components
 import Transition from "../Components/Transition"
 import useLocoScroll from "../Hooks/useLocoScroll"
-import useOnScreen from "../Hooks/useOnScreen"
 
 //utility & images
 import projects from "../utils/projects"
-import sudokuImage from "../Assets/Images/Sudoku.png"
-import NetflixImage from "../Assets/Images/NetflixClone.png"
-
-const images = [sudokuImage, NetflixImage]
+import ProjectItem from "../Components/Project"
 
 const Projects = () => {
   const showPageData = useSelector(({ showPage }) => showPage.show)
@@ -48,18 +44,25 @@ const Projects = () => {
 
   useEffect(() => {
     const sections = gsap.utils.toArray(".project-wrapper")
+
+    const check = () => {
+      if (location.pathname !== "/") {
+        return projectsRef.current
+      } else return "#scroller"
+    }
+
     const runTrigger = () => {
       gsap.to(sections, {
-        xPercent: -100 * (sections.length - 1),
+        xPercent: - 100 * (sections.length - 1),
         ease: "none",
         scrollTrigger: {
           start: "top top",
           trigger: scrollTriggerRef.current,
-          scroller: "#scroller",
+          scroller: check(),
           pin: true,
           scrub: 0.5,
-          span: 1 / (sections.length - 1),
-          end: () => `+=${scrollTriggerRef.current.offsetWidth}`,
+          span: 1 / sections.length,
+          end: () => `+=${scrollTriggerRef.current.offsetWidth } + 4000px`,
         },
       })
       ScrollTrigger.refresh()
@@ -77,7 +80,7 @@ const Projects = () => {
         <section
           ref={projectsRef}
           data-scroll-section
-          className="projects-container data-scroll-section"
+          className="projects-container"
         >
           <div className="projects-wrapper" ref={scrollTriggerRef}>
             <div className="project-counter">
@@ -97,44 +100,6 @@ const Projects = () => {
           </div>
         </section>
       )}
-    </div>
-  )
-}
-
-const ProjectItem = ({ project, setActiveProject }) => {
-  const ref = useRef(null)
-  const onScreen = useOnScreen(ref, 0.5)
-
-  useEffect(() => {
-    if (onScreen) {
-      setActiveProject(project.id)
-    }
-  })
-
-  return (
-    <div className={`project-wrapper ${onScreen && "is-reveal"}`}>
-      <div />
-      <div className="project-item">
-        <div className="project-item-info">
-          <h3 className="project-info-title">{project.name}</h3>
-          <p className="project-info-desc">{project.description}</p>
-          <a
-            className="project-info-link"
-            target="_blank"
-            href={project.liveLink}
-          >
-            Link
-          </a>
-        </div>
-        <div
-          data-scroll
-          className="project-item-image"
-          style={{
-            backgroundImage: `url(${images[project.id]})`,
-          }}
-        ></div>
-      </div>
-      <div />
     </div>
   )
 }
