@@ -1,6 +1,10 @@
 import { useEffect, useRef } from "react"
+
+//locomotiveScroll
 import LocomotiveScroll from "locomotive-scroll"
 import "locomotive-scroll/src/locomotive-scroll.scss"
+
+//gsap
 import gsap from "gsap"
 import ScrollTrigger from "gsap/ScrollTrigger"
 
@@ -17,6 +21,12 @@ const useLocoScroll = (
   useEffect(() => {
     if (!showLoader) return
 
+    const lsUpdate = () => {
+      if (locoScrollRef.current) {
+        locoScrollRef.current.update()
+      }
+    }
+
     if (home || pathname !== "/") {
       if (scrollRef.current) {
         locoScrollRef.current = new LocomotiveScroll({
@@ -27,7 +37,6 @@ const useLocoScroll = (
         })
 
         if (pathname !== "/") return
-
         locoScrollRef.current.on("scroll", () => {
           ScrollTrigger.update()
         })
@@ -36,26 +45,31 @@ const useLocoScroll = (
           scrollTop(value) {
             if (locoScrollRef.current) {
               return arguments.length
-                ? locoScrollRef.current?.scrollTo(value, 0, 0)
-                : locoScrollRef.current?.scroll.instance.scroll.y
+                ? locoScrollRef.current.scrollTo(value, 0, 0)
+                : locoScrollRef.current.scroll.instance.scroll.y
             }
             return null
           },
           scrollLeft(value) {
             if (locoScrollRef.current) {
               return arguments.length
-                ? locoScrollRef.current?.scrollTo(value, 0, 0)
-                : locoScrollRef.current?.scroll.instance.scroll.x
+                ? locoScrollRef.current.scrollTo(value, 0, 0)
+                : locoScrollRef.current.scroll.instance.scroll.x
             }
             return null
           },
+          getBoundingClientRect() {
+            return {
+              top: 0,
+              left: 0,
+              width: window.innerWidth,
+              height: window.innerHeight,
+            }
+          },
+          // pinType: document.getElementById("scroller").style.transform
+          //   ? "transform"
+          //   : "fixed",
         })
-
-        const lsUpdate = () => {
-          if (locoScrollRef.current) {
-            locoScrollRef.current?.update()
-          }
-        }
 
         ScrollTrigger.addEventListener("refresh", lsUpdate)
         ScrollTrigger.update()
@@ -63,10 +77,9 @@ const useLocoScroll = (
     }
 
     return () => {
-      if (locoScrollRef.current) {
-        ScrollTrigger.removeEventListener("refresh", lsUpdate)
-        locoScrollRef.current?.destroy()
-      }
+      ScrollTrigger.removeEventListener("refresh", lsUpdate)
+      locoScrollRef.current?.destroy()
+      locoScrollRef.current = null
     }
   }, [locoScrollRef, scrollRef, pathname, showLoader, home])
 
