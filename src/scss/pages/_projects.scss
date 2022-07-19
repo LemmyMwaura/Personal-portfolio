@@ -1,6 +1,122 @@
-@use '../abstracts' as ab;
+@use "../abstracts" as ab;
 
-.projects-container{
-  min-height: 50vh;
-  background-color: ab.$main-color;
+.projects-container {
+  background-color: ab.$green;
+  height: 100vh;
+  overscroll-behavior: none;
+
+  .title {
+    font-size: 6rem;
+    font-weight: bold;
+    color: ab.$all-black;
+    font-family: "Cormorant Upright", serif;
+  }
+
+  .projects-wrapper {
+    background: ab.$main-color;
+    position: relative;
+    height: 100vh;
+    padding: 10vh 0;
+    margin-bottom: calc(4rem);
+    width: 400%;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: scroll !important;
+
+    .project-counter {
+      position: absolute;
+      top: 10%;
+      left: 1%;
+      // mix-blend-mode: difference;
+      line-height: 16px;
+      color: ab.$off-white;
+      font-family: "Cormorant Upright", serif;
+      font-size: 2rem;
+      font-weight: bold;
+
+      .divider {
+        content: "";
+        background-color: white;
+        width: 6.25vw;
+        margin: 5px 10px;
+        height: 1px;
+        display: inline-block;
+      }
+    }
+
+    .project-wrapper {
+      padding: 0.5rem;
+      aspect-ratio: 16/9;
+      height: 100%;
+      width: 100vw;
+      display: grid;
+      grid-template-columns: 20vw 1fr 200px;
+
+      .project-item {
+        width: auto;
+        height: 100%;
+        position: relative;
+        will-change: transform;
+
+        .project-item-info {
+          position: absolute;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          background-color: ab.$off-white;
+          border: 4px solid black;
+          border-radius: 0.3rem;
+          padding: 1.5rem;
+          gap: 1vh;
+          bottom: 15%;
+          z-index: 1;
+          transform: translate(-20%);
+          color: ab.$all-black;
+
+          .project-info-title {
+            font-family: "Cormorant Upright", serif;
+            font-weight: bold;
+            font-size: 2vw;
+          }
+
+          .project-info-desc {
+            position: relative;
+            font-size: 1vw;
+          }
+
+          .project-info-link {
+            position: relative;
+            background-color: ab.$brown;
+            color: ab.$off-white;
+            border-radius: 0.1rem;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            font-family: "Syncopate", serif;
+            padding: 0.5rem 1rem;
+            margin-top: 1vh;
+          }
+        }
+
+        .project-item-image {
+          background-size: cover;
+          background-position: center;
+          transform-origin: center;
+          filter: grayscale(100%);
+          width: 100%;
+          height: 100%;
+          will-change: transform;
+          transform: scale(1);
+          clip-path: inset(100% 0 0 0);
+          transition: clip-path 1s cubic-bezier(0.77, 0, 0.175, 1),
+            transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+
+          &.is-reveal {
+            clip-path: inset(0 0 0 0);
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+  }
 }
