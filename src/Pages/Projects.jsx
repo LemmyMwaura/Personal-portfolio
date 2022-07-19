@@ -1,10 +1,13 @@
 import { useEffect, useState, useRef } from "react"
 import { useSelector } from "react-redux"
 import { useLocation } from "react-router-dom"
+import gsap from "gsap"
+import ScrollTrigger from "gsap/ScrollTrigger"
 
 //components
 import Transition from "../Components/Transition"
 import useLocoScroll from "../Hooks/useLocoScroll"
+import useOnScreen from "../Hooks/useOnScreen"
 
 //utility & images
 import projects from "../utils/projects"
@@ -19,6 +22,7 @@ const Projects = () => {
   const [showTransition, setShowTransition] = useState(false)
   const location = useLocation()
   const projectsRef = useRef(null)
+  const scrollTriggerRef = useRef(null)
   const [locoScrollRef] = useLocoScroll(
     projectsRef,
     location.pathname,
@@ -35,12 +39,36 @@ const Projects = () => {
   useEffect(() => {
     if (!showPageData) return
 
-    const setInterval = setTimeout(() => {
+    const initLocoScroll = setTimeout(() => {
       locoScrollRef.current?.update()
     }, 300)
 
-    return () => clearTimeout(setInterval)
+    return () => clearTimeout(initLocoScroll)
   }, [locoScrollRef.current, showPageData])
+
+  useEffect(() => {
+    const sections = gsap.utils.toArray(".project-wrapper")
+    const runTrigger = () => {
+      gsap.to(sections, {
+        xPercent: -100 * (sections.length - 1),
+        ease: "none",
+        scrollTrigger: {
+          start: "top top",
+          trigger: scrollTriggerRef.current,
+          scroller: "#scroller",
+          pin: true,
+          scrub: 0.5,
+          span: 1 / (sections.length - 1),
+          end: () => `+=${scrollTriggerRef.current.offsetWidth}`,
+        },
+      })
+      ScrollTrigger.refresh()
+    }
+
+    const scrollTriggerTimeout = setTimeout(runTrigger, 300)
+
+    return () => clearTimeout(scrollTriggerTimeout)
+  }, [scrollTriggerRef.current])
 
   return (
     <div>
@@ -51,14 +79,20 @@ const Projects = () => {
           data-scroll-section
           className="projects-container data-scroll-section"
         >
-          <div className="projects-wrapper">
+          <div className="projects-wrapper" ref={scrollTriggerRef}>
             <div className="project-counter">
               <span>{activeProject}</span>
               <span className="divider" />
               <span>{projects.length}</span>
             </div>
             {projects.map((project) => {
-              return <ProjectItem project={project} key={project.id} />
+              return (
+                <ProjectItem
+                  project={project}
+                  setActiveProject={setActiveProject}
+                  key={project.id}
+                />
+              )
             })}
           </div>
         </section>
@@ -67,9 +101,18 @@ const Projects = () => {
   )
 }
 
-const ProjectItem = ({ project }) => {
+const ProjectItem = ({ project, setActiveProject }) => {
+  const ref = useRef(null)
+  const onScreen = useOnScreen(ref, 0.5)
+
+  useEffect(() => {
+    if (onScreen) {
+      setActiveProject(project.id)
+    }
+  })
+
   return (
-    <div className="project-wrapper">
+    <div className={`project-wrapper ${onScreen && "is-reveal"}`}>
       <div />
       <div className="project-item">
         <div className="project-item-info">
