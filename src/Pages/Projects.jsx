@@ -1,16 +1,18 @@
 import { useEffect, useState, useRef } from "react"
 import { useSelector } from "react-redux"
 import { useLocation } from "react-router-dom"
+
+//gsap
 import gsap from "gsap"
 import ScrollTrigger from "gsap/ScrollTrigger"
 
 //components
 import Transition from "../Components/Transition"
-import useLocoScroll from "../Hooks/useLocoScroll"
-
-//utility & images
-import projects from "../utils/projects"
 import ProjectItem from "../Components/Project"
+
+//utility & hooks
+import projects from "../utils/projects"
+import useLocoScroll from "../Hooks/useLocoScroll"
 
 const Projects = () => {
   const showPageData = useSelector(({ showPage }) => showPage.show)
@@ -53,22 +55,22 @@ const Projects = () => {
 
     const runTrigger = () => {
       gsap.to(sections, {
-        xPercent: - 100 * (sections.length - 1),
+        xPercent: -(100 * (sections.length - 1)),
         ease: "none",
         scrollTrigger: {
           start: "top top",
           trigger: scrollTriggerRef.current,
           scroller: check(),
           pin: true,
-          scrub: 0.5,
-          span: 1 / sections.length,
-          end: () => `+=${scrollTriggerRef.current.offsetWidth } + 4000px`,
+          scrub: true,
+          snap: 1 / sections.length,
+          end: () => `+=${scrollTriggerRef.current.offsetWidth}`,
         },
       })
       ScrollTrigger.refresh()
     }
 
-    const scrollTriggerTimeout = setTimeout(runTrigger, 300)
+    const scrollTriggerTimeout = setTimeout(runTrigger, 100)
 
     return () => clearTimeout(scrollTriggerTimeout)
   }, [scrollTriggerRef.current])
@@ -79,7 +81,6 @@ const Projects = () => {
       {showPageData && (
         <section
           ref={projectsRef}
-          data-scroll-section
           className="projects-container"
         >
           <div className="projects-wrapper" ref={scrollTriggerRef}>

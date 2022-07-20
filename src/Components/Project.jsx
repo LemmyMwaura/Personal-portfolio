@@ -7,15 +7,15 @@ import useOnScreen from "../Hooks/useOnScreen"
 import sudokuImage from "../Assets/Images/Sudoku.png"
 import NetflixImage from "../Assets/Images/NetflixClone.png"
 
-const images = [sudokuImage, NetflixImage]
+const images = [sudokuImage, NetflixImage, sudokuImage, NetflixImage]
 
-function ProjectItem({ project, setActiveProject }) {
+const ProjectItem = ({ project, setActiveProject }) => {
   const isOnScreenRef = useRef(null)
   const onScreen = useOnScreen(isOnScreenRef, 0.5)
 
   useEffect(() => {
     if (onScreen) {
-      setActiveProject(project.id)
+      setActiveProject(() => project.id)
     }
   }, [])
 

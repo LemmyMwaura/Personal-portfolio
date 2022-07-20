@@ -20,12 +20,7 @@ const useLocoScroll = (
 
   useEffect(() => {
     if (!showLoader) return
-
-    const lsUpdate = () => {
-      if (locoScrollRef.current) {
-        locoScrollRef.current.update()
-      }
-    }
+    const lsUpdate = () => locoScrollRef.current?.update()
 
     if (home || pathname !== "/") {
       if (scrollRef.current) {
@@ -34,29 +29,26 @@ const useLocoScroll = (
           smooth: true,
           multiplier: 1,
           class: "is-reveal",
+          smartphone: {
+            smooth: true,
+          },
+          tablet: {
+            smooth: true,
+          },
         })
 
         if (pathname !== "/") return
-        locoScrollRef.current.on("scroll", () => {
-          ScrollTrigger.update()
-        })
-
+        locoScrollRef.current.on("scroll", ScrollTrigger.update)
         ScrollTrigger.scrollerProxy(scrollRef.current, {
           scrollTop(value) {
-            if (locoScrollRef.current) {
-              return arguments.length
-                ? locoScrollRef.current.scrollTo(value, 0, 0)
-                : locoScrollRef.current.scroll.instance.scroll.y
-            }
-            return null
+            return arguments.length
+              ? locoScrollRef.current?.scrollTo(value, 0, 0)
+              : locoScrollRef.current?.scroll.instance.scroll.y
           },
           scrollLeft(value) {
-            if (locoScrollRef.current) {
-              return arguments.length
-                ? locoScrollRef.current.scrollTo(value, 0, 0)
-                : locoScrollRef.current.scroll.instance.scroll.x
-            }
-            return null
+            return arguments.length
+              ? locoScrollRef.current?.scrollTo(value, 0, 0)
+              : locoScrollRef.current?.scroll.instance.scroll.x
           },
           getBoundingClientRect() {
             return {
@@ -66,20 +58,17 @@ const useLocoScroll = (
               height: window.innerHeight,
             }
           },
-          // pinType: document.getElementById("scroller").style.transform
-          //   ? "transform"
-          //   : "fixed",
+          pinType: scrollRef.current.style.transform ? "transform" : "fixed",
         })
 
         ScrollTrigger.addEventListener("refresh", lsUpdate)
-        ScrollTrigger.update()
+        ScrollTrigger.refresh()
       }
     }
 
     return () => {
       ScrollTrigger.removeEventListener("refresh", lsUpdate)
       locoScrollRef.current?.destroy()
-      locoScrollRef.current = null
     }
   }, [locoScrollRef, scrollRef, pathname, showLoader, home])
 
