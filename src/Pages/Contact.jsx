@@ -9,6 +9,7 @@ import useLocoScroll from "../Hooks/useLocoScroll"
 const Contact = () => {
   const showPageData = useSelector(({ showPage }) => showPage.show)
   const [showTransition, setShowTransition] = useState(false)
+  const [atContactRoute, setAtContactRoute] = useState(false)
   const location = useLocation()
   const contactRef = useRef(null)
   const [locoScrollRef] = useLocoScroll(
@@ -21,17 +22,18 @@ const Contact = () => {
   useEffect(() => {
     if (location.pathname !== "/") {
       setShowTransition(true)
+      setAtContactRoute(true)
     }
   }, [location.pathname])
 
   useEffect(() => {
     if (!showPageData) return
 
-    const setInterval = setTimeout(() => {
+    const initLocoScroll = setTimeout(() => {
       locoScrollRef.current?.update()
     }, 300)
 
-    return () => clearTimeout(setInterval)
+    return () => clearTimeout(initLocoScroll)
   }, [locoScrollRef.current, showPageData])
 
   return (
@@ -41,6 +43,9 @@ const Contact = () => {
         <>
           <div
             ref={contactRef}
+            style={{
+              paddingTop: atContactRoute ? "4rem" : "2rem",
+            }}
             data-scroll-section
             className="contact-container data-scroll-section"
           >

@@ -44,7 +44,16 @@
 
           span {
             font-size: 1rem;
+
+            &#content{
+              opacity: 1;
+
+              &.is-reveal{
+                opacity: 1;
+              }
+            }
           }
+
         }
       }
 

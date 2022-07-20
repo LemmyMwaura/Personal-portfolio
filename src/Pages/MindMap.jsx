@@ -8,11 +8,11 @@ import useLocoScroll from "../Hooks/useLocoScroll"
 
 //svg + icons
 import Underline from "../Assets/svg/underline"
-import { GiBulletBill } from "react-icons/gi"
 
 const MindMap = () => {
   const showPageData = useSelector(({ showPage }) => showPage.show)
   const [showTransition, setShowTransition] = useState(false)
+  const [atMindRoute, setAtMindRoute] = useState(false)
   const location = useLocation()
   const mindRef = useRef(null)
   const [locoScrollRef] = useLocoScroll(
@@ -25,17 +25,18 @@ const MindMap = () => {
   useEffect(() => {
     if (location.pathname !== "/") {
       setShowTransition(true)
+      setAtMindRoute(true)
     }
   }, [location.pathname])
 
   useEffect(() => {
     if (!showPageData) return
 
-    const setInterval = setTimeout(() => {
+    const initLocoScroll = setTimeout(() => {
       locoScrollRef.current?.update()
     }, 300)
 
-    return () => clearTimeout(setInterval)
+    return () => clearTimeout(initLocoScroll)
   }, [locoScrollRef.current, showPageData])
 
   return (
@@ -44,6 +45,9 @@ const MindMap = () => {
       {showPageData && (
         <div
           ref={mindRef}
+          style={{
+            paddingTop: atMindRoute ? "4rem" : "2rem",
+          }}
           data-scroll-section
           data-scroll-speed="-1"
           className="mindmap-container "
@@ -54,7 +58,7 @@ const MindMap = () => {
               <div className="desc">
                 <div className="details detail-1">
                   <span> - </span>
-                  <span>
+                  <span id="content">
                      Hello! My name is Brittany and I enjoy creating things that
                     live on the internet. My interest in web development started
                     back in 2012 when I decided to try editing custom Tumblr
@@ -67,7 +71,7 @@ const MindMap = () => {
                 </div>
                 <div className="details detail-2">
                   <span> - </span>
-                  <span>
+                  <span id="content">
                     My main focus these days is building accessible, inclusive
                     products and digital experiences at Upstatement for a
                     variety of clients. I also recently launched a course that
