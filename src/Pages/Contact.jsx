@@ -1,10 +1,12 @@
 import { useEffect, useState, useRef } from "react"
 import { useSelector } from "react-redux"
 import { useLocation } from "react-router-dom"
+import { motion } from "framer-motion"
 
 //components
 import Transition from "../Components/Transition"
 import useLocoScroll from "../Hooks/useLocoScroll"
+import exitVariant from "../Animations/Variants/ExitVariants"
 
 const Contact = () => {
   const showPageData = useSelector(({ showPage }) => showPage.show)
@@ -40,8 +42,8 @@ const Contact = () => {
     <div>
       {showTransition && <Transition pagename="Contact" />}
       {showPageData && (
-        <>
-          <div
+        <motion.div variants={atContactRoute ? exitVariant : ""} exit="exit">
+          <section
             ref={contactRef}
             style={{
               paddingTop: atContactRoute ? "4rem" : "2rem",
@@ -50,8 +52,8 @@ const Contact = () => {
             className="contact-container data-scroll-section"
           >
             Contact
-          </div>
-        </>
+          </section>
+        </motion.div>
       )}
     </div>
   )

@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react"
 import { useSelector } from "react-redux"
 import { useLocation } from "react-router-dom"
+import { motion } from "framer-motion"
 
 //Components
 import Banner from "../Components/Banner"
@@ -11,6 +12,7 @@ import Transition from "../Components/Transition"
 import MindMap from "../Pages/MindMap"
 import Projects from "../Pages/Projects"
 import Contact from "../Pages/Contact"
+import exitVariant from "../Animations/Variants/ExitVariants"
 
 import useLocoScroll from "../Hooks/useLocoScroll"
 
@@ -45,19 +47,24 @@ const Home = () => {
         <div className="container">
           {showTransition && <Transition pagename={"HOME"} />}
           {showPageData && (
-            <div
-              ref={scrollRef}
-              data-scroll-container
-              className=""
-              id="scroller"
+            <motion.div
+            variants={exitVariant}
+            exit="exit"
             >
-              <div className="banner-wrapper">
-                <Banner />
-              </div>
-              <MindMap />
-              <Projects />
-              <Contact />
-            </div>
+              <section
+                ref={scrollRef}
+                data-scroll-container
+                className=""
+                id="scroller"
+              >
+                <div className="banner-wrapper">
+                  <Banner />
+                </div>
+                <MindMap />
+                {/* <Projects /> */}
+                <Contact />
+              </section>
+            </motion.div>
           )}
         </div>
       )}

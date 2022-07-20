@@ -4,14 +4,7 @@ const banner = {
       delaychildren: 0.4,
       staggerChildren: 0.1,
     },
-  },
-  exit: {
-    y: -200,
-    transition: {
-      ease: 'easeOut',
-      duration: 1.5,
-    },
-  },
+  }
 }
 
 const letterAnimations = {
@@ -24,7 +17,7 @@ const letterAnimations = {
       ease: [0.6, 0.01, -0.05, 0.9],
       duration: 1,
     },
-  },
+  }
 }
 
 const banner2 = {
@@ -33,14 +26,7 @@ const banner2 = {
       delaychildren: 0.4,
       staggerChildren: 0.5,
     },
-  },
-  exit: {
-    y: -200,
-    transition: {
-      ease: 'easeOut',
-      duration: 1.5,
-    },
-  },
+  }
 }
 
 const BannerVariants = {
