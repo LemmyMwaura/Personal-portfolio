@@ -1,6 +1,4 @@
-import { useEffect, useRef } from "react"
-
-//hooks
+import { useRef} from "react"
 import useOnScreen from "../Hooks/useOnScreen"
 
 //images
@@ -9,22 +7,21 @@ import NetflixImage from "../Assets/Images/NetflixClone.png"
 
 const images = [sudokuImage, NetflixImage, sudokuImage, NetflixImage]
 
-const ProjectItem = ({ project, setActiveProject }) => {
+const ProjectItem = ({ project, total }) => {
   const isOnScreenRef = useRef(null)
   const onScreen = useOnScreen(isOnScreenRef, 0.5)
-
-  useEffect(() => {
-    if (onScreen) {
-      setActiveProject(() => project.id)
-    }
-  }, [])
-
+  
   return (
     <div
       ref={isOnScreenRef}
       className={`project-wrapper ${onScreen && "is-reveal"}`}
     >
       <div />
+      <div className="project-counter">
+        <span>{project.id}</span>
+        <span className="divider" />
+        <span>{total}</span>
+      </div>
       <div className="project-item">
         <div className={`project-item-info ${onScreen && "is-reveal"}`}>
           <h3 className="project-info-title">{project.name}</h3>
@@ -40,7 +37,7 @@ const ProjectItem = ({ project, setActiveProject }) => {
         <div
           className={`project-item-image ${onScreen && "is-reveal"}`}
           style={{
-            backgroundImage: `url(${images[project.id]})`,
+            backgroundImage: `url(${images[project.id - 1]})`,
           }}
         ></div>
       </div>
