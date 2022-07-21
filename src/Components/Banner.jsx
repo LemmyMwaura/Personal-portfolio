@@ -122,14 +122,19 @@ const BannerFooter = () => {
         animate="animate"
         exit="exit"
       >
-        <motion.a variants={letterAnimations} href="#">
+        <motion.a
+          variants={letterAnimations}
+          href="https://github.com/LemmyMwaura"
+          target="_blank"
+        >
           Github
         </motion.a>
-        <motion.a variants={letterAnimations} href="#">
+        <motion.a
+          variants={letterAnimations}
+          href="https://www.linkedin.com/in/lemmymwaura/"
+          target="_blank"
+        >
           Linkedln
-        </motion.a>
-        <motion.a variants={letterAnimations} href="#">
-          Home
         </motion.a>
       </motion.div>
       <motion.div
@@ -139,7 +144,7 @@ const BannerFooter = () => {
         animate="animate"
         exit="exit"
       >
-        <motion.a variants={letterAnimations} href="#">
+        <motion.a variants={letterAnimations} disabled>
           2022
         </motion.a>
       </motion.div>
