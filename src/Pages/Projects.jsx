@@ -8,7 +8,7 @@ import Transition from "../Components/Transition"
 import ProjectItem from "../Components/Project"
 
 //utility & hooks & variants
-import projects from "../utils/projects"
+import projects from "../Utils/projects"
 import useLocoScroll from "../Hooks/useLocoScroll"
 import exitVariant from "../Animations/Variants/ExitVariants"
 
