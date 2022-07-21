@@ -1,0 +1,70 @@
+@use "../abstracts/" as ab;
+@use "../utils/" as util;
+
+section.footer {
+  min-height: 80vh;
+  padding: 2rem;
+  display: grid;
+  align-items: center;
+  background-color: ab.$dark-brown;
+
+  @include util.breakpoint-down(mediumLarge) {
+    min-height: 70vh;
+  }
+
+  @include util.breakpoint-down(medium) {
+    min-height: 60vh;
+  }
+
+  @include util.breakpoint-down(small) {
+    min-height: 50vh;
+  }
+
+  @include util.breakpoint-down(halfSmall) {
+    min-height: 40vh;
+  }
+
+  .footer-items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2vw;
+
+    span {
+      font-size: clamp(1rem, 1rem + 6vw, 13rem);
+      font-weight: bold;
+      color: ab.$off-white;
+      font-family: "Syncopate", sans-serif;
+
+      @include util.breakpoint-down(halfSmall) {
+        font-size: clamp(1rem, 1rem + 3vw, 6rem);
+      }
+    }
+
+    .footer-image {
+      width: 20vw;
+      max-height: 25rem;
+    }
+  }
+
+  .footer-userdetails{
+    position: relative;
+    margin-bottom: -2rem;
+    background-color: ab.$off-white;
+    border: 4px solid ab.$all-black;
+    border-radius: 0.3rem;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+
+    span{
+      font-family: "Cormorant Upright", serif;
+      font-weight: bold;
+    }
+    .right{
+      span:first-child{
+        font-size: 1.25rem;
+      }
+    }
+  }
+}

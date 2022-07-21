@@ -1,8 +1,31 @@
-import React from 'react'
+import { useSelector } from "react-redux"
+import wave from "../../Assets/Images/wave.png"
 
 const Footer = () => {
+  const showPageData = useSelector(({ showPage }) => showPage.show)
+
   return (
-    <div>Footer</div>
+    <div>
+      {showPageData && (
+        <section className="footer" data-scroll-section>
+          <div className="footer-items">
+            <span>TAKE</span>
+            <img className="footer-image" src={wave} alt="image" />
+            <span>CARE</span>
+          </div>
+          <div className="footer-userdetails">
+            <div className="left">
+              <span>Designed & Built by</span>
+              <span> Lemmy Mwaura </span>
+            </div>
+            <div className="right">
+              <span>2022</span>
+              <span> All-Rights-Reserved</span>
+            </div>
+          </div>
+        </section>
+      )}
+    </div>
   )
 }
 
