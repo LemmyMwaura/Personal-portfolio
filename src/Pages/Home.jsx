@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 
 //Components
 import Banner from "../Components/Banner"
-import Loader from "../components/Loader"
+import Loader from "../Components/Loader"
 import Transition from "../Components/Transition"
 import Footer from "../Layouts/Footer/Footer"
 
