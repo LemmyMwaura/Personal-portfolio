@@ -15,6 +15,10 @@
   font-family: "Syncopate", sans-serif;
   transition: 0.5s ease;
 
+  @include util.breakpoint-down(midSmall) {
+    padding: 0 1rem;
+  }
+
   &.scrolled {
     transform: translateY(-3rem) !important;
   }
