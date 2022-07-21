@@ -90,8 +90,8 @@ const MindMap = () => {
                 </div>
               </div>
             </div>
-            <div className="footer">
-              <div className="footer-content">
+            <div className="about-footer">
+              <div className="about-footer-content">
                 <div className="item item-1">
                   <h4>Mobile and Web Design</h4>
                   <p>

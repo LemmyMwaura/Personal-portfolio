@@ -7,6 +7,7 @@ import { motion } from "framer-motion"
 import Banner from "../Components/Banner"
 import Loader from "../components/Loader"
 import Transition from "../Components/Transition"
+import Footer from "../Layouts/Footer/Footer"
 
 //Pages
 import MindMap from "../Pages/MindMap"
@@ -34,7 +35,7 @@ const Home = () => {
 
     const initLocoScroll = setTimeout(() => {
       locoScrollRef.current?.update()
-    }, 300)
+    })
 
     return () => clearTimeout(initLocoScroll)
   }, [locoScrollRef.current, showPageData])
@@ -47,22 +48,15 @@ const Home = () => {
         <div className="container">
           {showTransition && <Transition pagename={"HOME"} />}
           {showPageData && (
-            <motion.div
-            variants={exitVariant}
-            exit="exit"
-            >
-              <section
-                ref={scrollRef}
-                data-scroll-container
-                className=""
-                id="scroller"
-              >
+            <motion.div variants={exitVariant} exit="exit">
+              <section ref={scrollRef} data-scroll-container id="scroller">
                 <div className="banner-wrapper">
                   <Banner />
                 </div>
                 <MindMap />
                 {/* <Projects /> */}
                 <Contact />
+                <Footer />
               </section>
             </motion.div>
           )}

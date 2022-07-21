@@ -52,7 +52,7 @@ const Navbar = () => {
         },
       }}
     >
-      <div>
+      <div className="home-route">
         <NavLink to="/">LEMMY</NavLink>
       </div>
       <HamburgerMenu />

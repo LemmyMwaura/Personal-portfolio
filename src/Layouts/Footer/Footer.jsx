@@ -9,9 +9,9 @@ const Footer = () => {
       {showPageData && (
         <section className="footer" data-scroll-section>
           <div className="footer-items">
-            <span>TAKE</span>
+            <span>BYE</span>
             <img className="footer-image" src={wave} alt="image" />
-            <span>CARE</span>
+            <span>BYE</span>
           </div>
           <div className="footer-userdetails">
             <div className="left">
