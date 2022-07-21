@@ -1,21 +1,21 @@
-import {NavLink} from 'react-router-dom'
-import {motion} from 'framer-motion'
-import {useLocation} from 'react-router-dom'
-import {useDispatch} from 'react-redux/es/hooks/useDispatch'
+import { NavLink } from "react-router-dom"
+import { motion } from "framer-motion"
+import { useLocation } from "react-router-dom"
+import { useDispatch } from "react-redux/es/hooks/useDispatch"
 
 // icon
-import {BiX} from 'react-icons/bi'
+import { BiX } from "react-icons/bi"
 
 //slice
-import {hideMobileMenu} from '../../Features/MobileMenuSlice'
+import { hideMobileMenu } from "../../Features/MobileMenuSlice"
 
 //animations
-import MobileMenuVariants from '../../Animations/Variants/MobileMenu'
+import MobileMenuVariants from "../../Animations/Variants/MobileMenu"
 
 const MobileNav = () => {
   const location = useLocation()
   const dispatch = useDispatch()
-  const {menu, links, icon} = MobileMenuVariants
+  const { menu, links, icon } = MobileMenuVariants
 
   return (
     <motion.div
