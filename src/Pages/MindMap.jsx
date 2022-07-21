@@ -9,7 +9,7 @@ import Transition from "../Components/Transition"
 import useLocoScroll from "../Hooks/useLocoScroll"
 
 //svg + icons + variants
-import Underline from "../Assets/svg/Underline"
+import Underline from "../Assets/Svg/Underline"
 import { GiArrowDunk } from "react-icons/gi"
 import exitVariant from "../Animations/Variants/ExitVariants"
 
