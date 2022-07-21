@@ -1,7 +1,7 @@
-@use '../abstracts/' as ab;
-@use '../utils/' as util;
+@use "../abstracts/" as ab;
+@use "../utils/" as util;
 
-.navigation{
+.navigation {
   position: fixed;
   top: 0;
   width: 100vw;
@@ -12,13 +12,22 @@
   padding: 0 2rem;
   margin: 0 auto;
   z-index: 100;
-  font-family: 'Syncopate', sans-serif;
-  font-size: 0.8rem;
+  font-family: "Syncopate", sans-serif;
   transition: 0.5s ease;
+
+  &.scrolled {
+    transform: translateY(-3rem) !important;
+  }
 
   a {
     color: ab.$all-black;
     font-weight: bold;
+    text-transform: uppercase;
+    font-size: clamp(0.7rem, 0.6rem + 0.5vw, 0.9rem);
+
+    @include util.breakpoint-up(medium) {
+      font-size: 0.9rem;
+    }
   }
 
   .active::after {
@@ -28,26 +37,26 @@
   .active::before {
     width: 50%;
   }
-  
+
   .desktop-nav {
     @include util.breakpoint-down(medium) {
       display: none;
     }
-  
+
     .nav-group {
       display: flex;
       align-items: center;
       gap: 3rem;
     }
   }
-  
+
   .mobile-nav {
     display: none;
     a::after,
     a::before {
       height: 4px;
     }
-  
+
     @include util.breakpoint-down(medium) {
       display: flex;
       flex-direction: column;
@@ -62,9 +71,11 @@
       background-color: ab.$off-white;
       z-index: 70;
       padding: 4rem;
-      font-size: 3.5rem;
+      a {
+        font-size: 3.8rem;
+      }
 
-      .mobile-menu-icon{
+      .mobile-menu-icon {
         position: absolute;
         top: 0;
         right: 0;
@@ -73,33 +84,46 @@
         transition: 0.3s ease;
       }
 
-      .mobile-menu-icon:hover{
-        transform: rotate(90deg)
+      .mobile-menu-icon:hover {
+        transform: rotate(90deg);
       }
-  
+
       .nav-group {
         display: flex;
         flex-direction: column;
         gap: 1rem;
       }
     }
-  
+
     @include util.breakpoint-down(small) {
-      font-size: 3.5rem;
+      a {
+        font-size: 3rem;
+      }
     }
-  
+    
+    @include util.breakpoint-down(halfSmall) {
+      padding: 3rem;
+      a {
+        font-size: 2.5rem;
+      }
+    }
+
     @include util.breakpoint-down(midSmall) {
-      font-size: 2.8rem;
-  
+      padding: 2rem;
+      a {
+        font-size: 2.2rem;
+      }
+
       a::after,
       a::before {
         height: 2.5px;
       }
     }
-  
+
     @include util.breakpoint-down(extraSmall) {
-      font-size: 2.5rem;
-  
+      a {
+        font-size: 1.8rem;
+      }
       a::after,
       a::before {
         height: 2px;

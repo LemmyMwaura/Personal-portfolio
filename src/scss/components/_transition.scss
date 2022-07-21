@@ -1,4 +1,5 @@
 @use '../abstracts/' as ab;
+@use "../utils/" as util;
 
 .transition-background {
   position: fixed;
@@ -8,6 +9,7 @@
   height: 0;
   z-index: 87;
   background-color: ab.$sec-color;
+  will-change: transform, height;
 }
 
 .transition-main-background {
@@ -21,9 +23,10 @@
   height: 0;
   z-index: 88;
   background-color: ab.$dark-brown;
+  will-change: transform, height;
 
   .transition-page-name {
-    font-size: clamp(4rem, calc(3rem + 5vw), 8rem);
+    font-size: clamp(1.5rem, calc(1.5rem + 4vw), 8rem);
     font-family: "Syncopate", sans-serif;
     text-transform: uppercase;
     font-weight: bold;
@@ -33,6 +36,9 @@
     border-radius: 0.2rem;
     background-color: ab.$off-white;
     clip-path: inset(0% 0% 0% 100%);
+    @include util.breakpoint-down(halfSmall) {
+      font-size: clamp(1.3rem, calc(1rem + 3vw), 3rem);
+    }
   }
 }
 

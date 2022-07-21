@@ -4,6 +4,10 @@
   min-height: calc(100vh);
   overscroll-behavior: none;
 
+  // @include util.breakpoint-down(midSmall) {
+  //   padding: 1rem;
+  // }
+
   .title {
     font-size: 6rem;
     font-weight: bold;
@@ -117,13 +121,20 @@
           height: 100%;
           will-change: transform;
           transform: scale(0.7);
-          clip-path: inset(0 0 0 0);
           transition: transform 1.5s cubic-bezier(0.77, 0, 0.175, 1);
 
           &.is-reveal {
             transform: scale(1);
           }
         }
+      }
+      &:nth-child(odd) {
+        .project-item-info{
+          right: 0;
+          transform: translate(20%);
+          clip-path: inset(0 100% 0 0%);
+        }
+      
       }
     }
   }

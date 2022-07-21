@@ -1,4 +1,16 @@
+@use "../abstracts/" as ab;
+@use "../utils/" as util;
+
 .banner-wrapper {
-  padding: 0 2rem;
+  padding: 2rem;
   min-height: calc(100vh - 3rem);
+
+  @include util.breakpoint-down(midSmall) {
+    padding-top: 2rem;
+    padding: 1rem;
+  }
+
+  @include util.breakpoint-down(medium) {
+    min-height: calc(80vh - 4rem);
+  }
 }

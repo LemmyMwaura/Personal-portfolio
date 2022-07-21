@@ -3,17 +3,18 @@
 
 .menu {
   display: none;
-
+  font-family: "Syncopate", sans-serif;
+  
   @include util.breakpoint-down(medium) {
     display: block;
     position: relative;
     border: none;
     outline: none;
     background: none;
-    font-size: 1rem;
     padding: 0;
     margin: 0;
     color: ab.$all-black;
+    font-size: clamp(0.7rem, 0.6rem + 0.5vw, 1rem);
     font-weight: bold;
     cursor: pointer;
     

@@ -1,6 +1,152 @@
-@use '../abstracts' as ab;
+@use "../abstracts" as ab;
+@use "../utils/" as util;
 
-.contact-container{
+.contact-container {
   min-height: 100vh;
-  background-color: ab.$green;
+  padding: 2rem;
+  background-color: ab.$off-white;
+
+  @include util.breakpoint-down(midSmall) {
+    padding: 1rem;
+  }
+
+  .contact-content {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 100%;
+    gap: 3rem;
+
+    h3 {
+      font-size: clamp(4rem, 4rem + 3vw, 6rem);
+      font-weight: bold;
+      justify-self: center;
+      font-family: "Cormorant Upright", serif;
+    }
+
+    .contact-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 3rem;
+      width: 100%;
+
+      .info {
+        display: flex;
+        gap: 1rem;
+        width: 90%;
+        line-height: 1.3;
+        font-family: "syncopate", sans-serif;
+      }
+      .emails {
+        align-self: center;
+        width: 90%;
+        display: grid;
+        gap: 4rem;
+        grid-template-columns: 1fr 1fr;
+
+        @include util.breakpoint-down(mediumLarge) {
+          gap: 2rem;
+        }
+
+        @include util.breakpoint-down(medium) {
+          grid-template-columns: 1fr;
+        }
+
+        .email-wrapper {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 20px;
+          padding: 2rem 1rem;
+          background-color: ab.$main-color;
+          border: 4px solid ab.$all-black;
+          border-radius: 0.3rem;
+
+          @include util.breakpoint-down(mediumLarge) {
+            padding: 1.5rem 0.5rem;
+          }
+
+          @include util.breakpoint-down(halfSmall) {
+            padding: 1rem 0.5rem;
+          }
+
+          .email-value {
+            width: 100%;
+            color: ab.$all-black;
+            font-weight: bold;
+            font-family: "Syncopate", sans-serif;
+            font-size: clamp(0.8rem, 0.5rem + 0.5vw, 1rem);
+            cursor: default;
+
+            @include util.breakpoint-down(halfSmall) {
+              font-size: clamp(0.5rem, 0.5rem + 0.5vw, 0.8rem);
+            }
+            @include util.breakpoint-down(midSmall) {
+              font-size:0.5rem
+            }
+            @include util.breakpoint-down(extraSmall) {
+              font-size:0.48rem
+            }
+            @include util.breakpoint-down(extraExtraSmall) {
+              font-size:0.4rem
+            }
+          }
+
+          .btn-copy {
+            border: none;
+            outline: none;
+            background: ab.$dark-brown;
+            padding: 1rem;
+            border-radius: 0.1rem;
+            display: grid;
+            place-content: center;
+            cursor: pointer;
+
+            @include util.breakpoint-down(midSmall) {
+              padding: 0.5rem;
+            }
+
+            .copy-tooltip {
+              font-size: 1.3rem;
+              color: ab.$off-white;
+
+              @include util.breakpoint-down(midSmall) {
+                font-size:1rem
+              }
+            }
+
+            &:active {
+              transform: scale(0.95);
+            }
+          }
+        }
+      }
+
+      .social-links {
+        align-self: center;
+        width: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .social-icon {
+          font-size: 2.5rem;
+          color: ab.$dark-brown;
+          cursor: pointer;
+          transition: all 0.2s ease-in-out;
+          &:hover {
+            color: ab.$main-color;
+          }
+
+          @include util.breakpoint-down(midSmall) {
+            font-size: 1.8rem
+          }
+        }
+        :active {
+          transform: scale(0.95);
+        }
+      }
+    }
+  }
 }

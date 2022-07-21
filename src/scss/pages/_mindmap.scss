@@ -1,23 +1,29 @@
 @use "../abstracts" as ab;
+@use "../utils/" as util;
 
 .mindmap-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 8rem;
-  // min-height: calc(100vh - 3rem);
   padding: 2rem;
   background-color: hsl(49, 44%, 73%);
   color: ab.$all-black;
   font-family: "Syncopate", sans-serif;
 
+  @include util.breakpoint-down(midSmall) {
+    padding: 1rem;
+  }
+
   .mindmap-content {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    flex-direction: column;
+    gap: 3rem;
 
     h3 {
-      font-size: 6rem;
+      font-size: clamp(4rem, 4rem + 3vw, 6rem);
       font-weight: bold;
       justify-self: center;
       font-family: "Cormorant Upright", serif;
@@ -31,9 +37,14 @@
       gap: 1rem;
 
       .desc {
-        width: 50vw;
+        width: 80vw;
         display: grid;
         gap: 3rem;
+        font-weight: bold;
+
+        @include util.breakpoint-down(small) {
+          width: 90vw;
+        }
 
         .details {
           width: 100%;
@@ -43,17 +54,20 @@
           line-height: 1.3;
 
           span {
-            font-size: 1rem;
+            font-size: clamp(1rem, 1rem + 0.5vw, 2.3rem);
 
-            &#content{
+            @include util.breakpoint-down(halfSmall) {
+              font-size: 1rem;
+            }
+
+            &#content {
               opacity: 1;
 
-              &.is-reveal{
+              &.is-reveal {
                 opacity: 1;
               }
             }
           }
-
         }
       }
 
@@ -71,21 +85,41 @@
     }
   }
 
-  .footer {
-    .footer-content {
-      display: flex;
-      justify-content: space-between;
+  .about-footer {
+    .about-footer-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      justify-content: center;
+      text-align: center;
       gap: 2rem;
       width: 100%;
+
+      @include util.breakpoint-down(medium) {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+      }
+
+      @include util.breakpoint-down(halfSmall) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
 
       .item {
         display: flex;
         flex-direction: column;
+        justify-self: center;
         border: 4px solid black;
         border-radius: 0.2rem;
         gap: 0.5rem;
         color: ab.$all-black;
         max-width: 300px;
+
+        @include util.breakpoint-down(halfSmall) {
+          max-width: 90%;
+        }
 
         h4 {
           font-size: 1rem;
@@ -104,19 +138,26 @@
 
       .item-4 {
         border: none;
+        grid-column: 2 / 3;
+        justify-self: center;
         align-self: center;
-        cursor: pointer;
         display: grid;
         place-content: center;
-        background-color: ab.$main-color;
-        border-radius: 50%;
-        height: 10rem;
-        width: 10rem;
+
+        .arrow-icon {
+          font-size: 5rem;
+        }
 
         .btn-about {
           background: none;
+          font-family: "Syncopate", sans-serif;
+          font-weight: bold;
           border: none;
-          color: ab.$all-black;
+
+          a {
+            color: ab.$all-black;
+            font-size: 1rem;
+          }
         }
       }
     }

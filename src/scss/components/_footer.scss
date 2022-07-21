@@ -5,23 +5,24 @@ section.footer {
   min-height: 80vh;
   padding: 2rem;
   display: grid;
+  gap: 1rem;
   align-items: center;
   background-color: ab.$dark-brown;
 
   @include util.breakpoint-down(mediumLarge) {
-    min-height: 70vh;
+    min-height: 75vh;
   }
 
   @include util.breakpoint-down(medium) {
-    min-height: 60vh;
+    min-height: 65vh;
   }
 
   @include util.breakpoint-down(small) {
-    min-height: 50vh;
+    min-height: 55vh;
   }
 
   @include util.breakpoint-down(halfSmall) {
-    min-height: 40vh;
+    min-height: 45vh;
   }
 
   .footer-items {
@@ -42,12 +43,15 @@ section.footer {
     }
 
     .footer-image {
-      width: 20vw;
-      max-height: 25rem;
+      width: 17vw;
+
+      @include util.breakpoint-down(medium) {
+        width: 20vw;
+      }
     }
   }
 
-  .footer-userdetails{
+  .footer-userdetails {
     position: relative;
     margin-bottom: -2rem;
     background-color: ab.$off-white;
@@ -56,14 +60,28 @@ section.footer {
     padding: 0.5rem;
     display: flex;
     justify-content: space-between;
+    gap: 1rem;
 
-    span{
+    @include util.breakpoint-down(halfSmall) {
+      padding: 0.3rem;
+    }
+
+    span {
       font-family: "Cormorant Upright", serif;
       font-weight: bold;
+
+      @include util.breakpoint-down(halfSmall) {
+        font-size: 0.8rem;
+      }
     }
-    .right{
-      span:first-child{
+    .right {
+      span:first-child {
+        text-transform: uppercase;
         font-size: 1.25rem;
+
+        @include util.breakpoint-down(halfSmall) {
+          font-size: 0.9rem;
+        }
       }
     }
   }

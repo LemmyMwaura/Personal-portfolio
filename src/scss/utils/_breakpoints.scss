@@ -9,10 +9,13 @@ $breakpoints-up: (
 
 //699.98px, 899.98px, 1439.98px
 $breakpoints-down:(
+  "extraExtraSmall": fs.toEm(299.98),
   "extraSmall": fs.toEm(399.98),
   "midSmall": fs.toEm(450.98),
+  "halfSmall": fs.toEm(550.98),
   "small": fs.toEm(699.98),
   "medium": fs.toEm(899.98),
+  "mediumLarge": fs.toEm(999.98),
   "large": fs.toEm(1439.98),
 );
 
