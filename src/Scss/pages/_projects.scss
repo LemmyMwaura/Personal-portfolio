@@ -82,6 +82,28 @@
         position: relative;
         will-change: transform;
 
+        .title-wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+        }
+
+        .project-links {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 10px;
+
+          .project-info-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: ab.$dark-brown;
+            font-size: 1.3rem;
+          }
+        }
+
         @include util.breakpoint-down(mediumLarge) {
           width: 70vw;
         }
@@ -125,6 +147,7 @@
           transform: translate(-20%);
           color: ab.$all-black;
           transition: clip-path 1s 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+          max-width: 40vw;
 
           @include util.breakpoint-down(medium) {
             background-color: ab.$light-white;
@@ -157,24 +180,30 @@
             font-size: clamp(0.7rem, 0.5rem + 0.5vw, 0.9rem);
           }
 
-          .project-info-link {
-            position: relative;
-            background-color: ab.$brown;
-            color: ab.$off-white;
-            border-radius: 0.1rem;
-            font-weight: bold;
-            font-size: clamp(0.5rem, 0.5rem + 0.4vw, 0.8rem);
-            text-transform: uppercase;
-            font-family: "Syncopate", serif;
-            padding: 0.5rem 1rem;
+          .project-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
             margin-top: 1vh;
 
-            @include util.breakpoint-down(medium) {
-              color: ab.$light-white;
-            }
+            .project-info-stat {
+              position: relative;
+              background-color: ab.$brown;
+              color: ab.$off-white;
+              border-radius: 0.1rem;
+              font-weight: bold;
+              font-size: clamp(0.5rem, 0.5rem + 0.4vw, 0.75rem);
+              text-transform: uppercase;
+              font-family: "Syncopate", serif;
+              padding: 0.5rem 1rem;
 
-            @include util.breakpoint-down(mediumLarge) {
-              padding: 0.5rem;
+              @include util.breakpoint-down(medium) {
+                color: ab.$light-white;
+              }
+
+              @include util.breakpoint-down(mediumLarge) {
+                padding: 0.5rem;
+              }
             }
           }
         }

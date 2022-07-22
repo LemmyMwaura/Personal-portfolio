@@ -1,16 +1,20 @@
-import { useRef} from "react"
+import { useRef } from "react"
 import useOnScreen from "../Hooks/useOnScreen"
 
 //images
-import sudokuImage from "../Assets/Images/Sudoku.png"
-import NetflixImage from "../Assets/Images/NetflixClone.png"
+import sudokuImage from "../Assets/Images/Sudoku.jpg"
+import NetflixImage from "../Assets/Images/NetflixClone.jpg"
 
-const images = [sudokuImage, NetflixImage, sudokuImage, NetflixImage]
+//
+import { HiLink } from "react-icons/hi"
+import { FiGithub } from "react-icons/fi"
+
+const images = [sudokuImage, NetflixImage, sudokuImage, NetflixImage, sudokuImage]
 
 const ProjectItem = ({ project, total }) => {
   const isOnScreenRef = useRef(null)
   const onScreen = useOnScreen(isOnScreenRef, 0.5)
-  
+
   return (
     <div
       ref={isOnScreenRef}
@@ -23,15 +27,31 @@ const ProjectItem = ({ project, total }) => {
       </div>
       <div className="project-item">
         <div className={`project-item-info ${onScreen && "is-reveal"}`}>
-          <h3 className="project-info-title">{project.name}</h3>
+          <div className="title-wrapper">
+            <h3 className="project-info-title">{project.name}</h3>
+            <div className="project-links">
+              <a
+                className="project-info-link"
+                target="_blank"
+                href={project.liveLink}
+              >
+                <HiLink />
+              </a>
+              <a
+                className="project-info-link"
+                target="_blank"
+                href={project.githubLink}
+              >
+                <FiGithub />
+              </a>
+            </div>
+          </div>
           <p className="project-info-desc">{project.description}</p>
-          <a
-            className="project-info-link"
-            target="_blank"
-            href={project.liveLink}
-          >
-            Link
-          </a>
+          <div className="project-stats">
+            {project.stats.map((stat) => {
+              return <span className="project-info-stat">{stat}</span>
+            })}
+          </div>
         </div>
         <div
           className={`project-item-image ${onScreen && "is-reveal"}`}
