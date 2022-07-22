@@ -1,4 +1,4 @@
-@use '../abstracts/' as ab;
+@use "../abstracts/" as ab;
 @use "../utils/" as util;
 
 .transition-background {
@@ -8,8 +8,12 @@
   right: 0;
   height: 0;
   z-index: 87;
-  background-color: ab.$sec-color;
+  background-color: ab.$off-white;
   will-change: transform, height;
+
+  @include util.breakpoint-down(small) {
+    background-color: ab.$light-white;
+  }
 }
 
 .transition-main-background {
@@ -36,6 +40,11 @@
     border-radius: 0.2rem;
     background-color: ab.$off-white;
     clip-path: inset(0% 0% 0% 100%);
+
+    @include util.breakpoint-down(small) {
+      background-color: ab.$light-white;
+    }
+
     @include util.breakpoint-down(halfSmall) {
       font-size: clamp(1.3rem, calc(1rem + 3vw), 3rem);
     }

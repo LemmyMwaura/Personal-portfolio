@@ -115,6 +115,10 @@
               font-size: 1.3rem;
               color: ab.$off-white;
 
+              @include util.breakpoint-down(small) {
+                background-color: ab.$light-white;
+              }
+
               @include util.breakpoint-down(midSmall) {
                 font-size:1rem
               }

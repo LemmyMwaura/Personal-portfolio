@@ -16,7 +16,6 @@ const ProjectItem = ({ project, total }) => {
       ref={isOnScreenRef}
       className={`project-wrapper ${onScreen && "is-reveal"}`}
     >
-      <div />
       <div className="project-counter">
         <span>{project.id}</span>
         <span className="divider" />
@@ -41,7 +40,6 @@ const ProjectItem = ({ project, total }) => {
           }}
         ></div>
       </div>
-      <div />
     </div>
   )
 }
