@@ -1,6 +1,7 @@
-@use '../abstracts' as ab;
+@use "../abstracts" as ab;
+@use "../utils/" as util;
 
-.loader-background{
+.loader-background {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -25,6 +26,10 @@
   padding-bottom: 50px;
   justify-content: flex-end;
   align-items: flex-end;
+
+  @include util.breakpoint-down(small) {
+    background-color: ab.$light-white;
+  }
 }
 
 .counter-container {
@@ -39,7 +44,7 @@
     margin-bottom: 1vw;
     color: ab.$black;
     font-size: 30vw;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     line-height: 30vw;
     font-weight: 300;
   }
