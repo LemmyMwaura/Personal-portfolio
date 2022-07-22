@@ -11,6 +11,10 @@
   }
 
   @include util.breakpoint-down(medium) {
-    min-height: calc(80vh - 4rem);
+    min-height: calc(80vh - 3rem);
+  }
+
+  @include util.breakpoint-down(small) {
+    padding-bottom: 0;
   }
 }

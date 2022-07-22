@@ -4,11 +4,11 @@
 .banner {
   display: grid;
   justify-content: space-between;
-  min-height: calc(100vh - 4rem);
+  min-height: calc(100vh - 3rem);
   overflow: hidden;
 
   @include util.breakpoint-down(medium) {
-    min-height: calc(80vh - 4rem);
+    min-height: calc(80vh - 3rem);
   }
 
   .banner-row {
@@ -104,6 +104,14 @@
     grid-template-columns: 1fr 1fr;
     align-items: center;
     margin-top: 1.5rem;
+
+    @include util.breakpoint-down(medium) {
+      margin-top: 1rem;
+    }
+
+    @include util.breakpoint-down(small) {
+      margin-top: 0rem;
+    }
 
     a {
       font-family: "Syncopate", sans-serif;

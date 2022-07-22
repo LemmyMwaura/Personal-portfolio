@@ -4,14 +4,35 @@ import { useLocation } from "react-router-dom"
 import { Link } from "react-router-dom"
 import { motion } from "framer-motion"
 
-//components
+//components + variants
 import Transition from "../Components/Transition"
 import useLocoScroll from "../Hooks/useLocoScroll"
+import exitVariant from "../Animations/Variants/ExitVariants"
 
-//svg + icons + variants
+//svg + icons
 import Underline from "../Assets/SVG/Underline"
 import { GiArrowDunk } from "react-icons/gi"
-import exitVariant from "../Animations/Variants/ExitVariants"
+import {
+  FaReact,
+  FaPython,
+  FaAngular,
+  FaSass,
+  FaBootstrap,
+  FaHtml5,
+} from "react-icons/fa"
+import {
+  SiJavascript,
+  SiDjango,
+  SiFlask,
+  SiFastapi,
+  SiCss3,
+  SiNextdotjs,
+  SiReactivex,
+  SiNodedotjs,
+  SiTypescript,
+  SiTailwindcss,
+  SiPostgresql,
+} from "react-icons/si"
 
 const MindMap = () => {
   const showPageData = useSelector(({ showPage }) => showPage.show)
@@ -83,6 +104,66 @@ const MindMap = () => {
                       covers everything you need to build a web app with the
                       Spotify API using Node & React.
                     </span>
+                  </div>
+                  <div className="details detail-3">
+                    <span> - </span>
+                    <span id="content">
+                      Here are a few technologies ive been working with
+                      recently:
+                    </span>
+                  </div>
+                  <div className="social-links">
+                    <a>
+                      <FaHtml5 className="social-icon" />
+                    </a>
+                    <a>
+                      <SiCss3 className="social-icon" />
+                    </a>
+                    <a>
+                      <FaBootstrap className="social-icon" />
+                    </a>
+                    <a>
+                      <FaSass className="social-icon" />
+                    </a>
+                    <a>
+                      <SiTailwindcss className="social-icon" />
+                    </a>
+                    <a>
+                      <SiJavascript className="social-icon" />
+                    </a>
+                    <a>
+                      <SiTypescript className="social-icon" />
+                    </a>
+                    <a>
+                      <SiNodedotjs className="social-icon" />
+                    </a>
+                    <a>
+                      <FaAngular className="social-icon" />
+                    </a>
+                    <a>
+                      <SiReactivex className="social-icon" />
+                    </a>
+                    <a>
+                      <FaReact className="social-icon" />
+                    </a>
+                    <a>
+                      <SiNextdotjs className="social-icon" />
+                    </a>
+                    <a>
+                      <FaPython className="social-icon" />
+                    </a>
+                    <a>
+                      <SiDjango className="social-icon" />
+                    </a>
+                    <a>
+                      <SiFlask className="social-icon" />
+                    </a>
+                    <a>
+                      <SiFastapi className="social-icon" />
+                    </a>
+                    <a>
+                      <SiPostgresql className="social-icon" />
+                    </a>
                   </div>
                 </div>
                 <div className="underline-wrapper">
