@@ -127,6 +127,7 @@
           transition: clip-path 1s 0.5s cubic-bezier(0.77, 0, 0.175, 1);
 
           @include util.breakpoint-down(medium) {
+            background-color: ab.$light-white;
             padding: 1rem;
             gap: 0.5vh;
             max-width: 30vw;
@@ -168,6 +169,10 @@
             padding: 0.5rem 1rem;
             margin-top: 1vh;
 
+            @include util.breakpoint-down(medium) {
+              background-color: ab.$light-white;
+            }
+
             @include util.breakpoint-down(mediumLarge) {
               padding: 0.5rem;
             }
@@ -196,7 +201,7 @@
           right: 0;
           transform: translate(20%);
           clip-path: inset(0 100% 0 0%);
-          
+
           @include util.breakpoint-down(halfSmall) {
             transform: translate(10%);
           }

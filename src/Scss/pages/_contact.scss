@@ -116,7 +116,7 @@
               color: ab.$off-white;
 
               @include util.breakpoint-down(small) {
-                background-color: ab.$light-white;
+                color: ab.$light-white;
               }
 
               @include util.breakpoint-down(midSmall) {
