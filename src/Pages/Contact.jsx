@@ -11,7 +11,7 @@ import exitVariant from "../Animations/Variants/ExitVariants"
 //icons
 import { BiCopy } from "react-icons/bi"
 import { FaGithubAlt } from "react-icons/fa"
-import { SiHashnode } from "react-icons/si"
+import { SiHashnode, SiStackoverflow } from "react-icons/si"
 import { GrLinkedinOption } from "react-icons/gr"
 import { BsTwitter } from "react-icons/bs"
 import { AiOutlineMedium } from "react-icons/ai"
@@ -121,6 +121,9 @@ const Contact = () => {
                   </a>
                   <a href={"https://medium.com/@Lemmymwaura8"} target="_blank">
                     <AiOutlineMedium className="social-icon" />
+                  </a>
+                  <a href={"https://stackoverflow.com/users/14240901/lemmy-mwaura"} target="_blank">
+                    <SiStackoverflow className="social-icon" />
                   </a>
                 </div>
               </div>
