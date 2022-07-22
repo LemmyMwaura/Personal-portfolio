@@ -11,6 +11,10 @@
   color: ab.$all-black;
   font-family: "Syncopate", sans-serif;
 
+  @include util.breakpoint-down(small) {
+    background-color: ab.$light-white;
+  }
+
   @include util.breakpoint-down(midSmall) {
     padding: 1rem;
   }

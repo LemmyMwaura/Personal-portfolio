@@ -37,6 +37,10 @@ section.footer {
       color: ab.$off-white;
       font-family: "Syncopate", sans-serif;
 
+      @include util.breakpoint-down(small) {
+        color: ab.$light-white;
+      }
+
       @include util.breakpoint-down(halfSmall) {
         font-size: clamp(1rem, 1rem + 3vw, 6rem);
       }
@@ -61,6 +65,10 @@ section.footer {
     display: flex;
     justify-content: space-between;
     gap: 1rem;
+
+    @include util.breakpoint-down(small) {
+      background-color: ab.$light-white;
+    }
 
     @include util.breakpoint-down(halfSmall) {
       padding: 0.3rem;
