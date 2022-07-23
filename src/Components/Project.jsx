@@ -35,14 +35,14 @@ const ProjectItem = ({ project, total }) => {
                 target="_blank"
                 href={project.liveLink}
               >
-                <HiLink />
+                <HiLink className="project-tooltip" />
               </a>
               <a
                 className="project-info-link"
                 target="_blank"
                 href={project.githubLink}
               >
-                <FiGithub />
+                <FiGithub className="project-tooltip" />
               </a>
             </div>
           </div>
