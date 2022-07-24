@@ -56,6 +56,15 @@ const projects = [
     githubLink: "https://github.com/LemmyMwaura/Neighbourhood_Watch",
     stats: ["Django", "PostgreSQL", "Django-Auth", "cloudinary"],
   },
+  {
+    id: generate.next().value,
+    name: "Github Stats App",
+    description: "Get the latest stats from your github account",
+    status: "active",
+    liveLink: "https://lemmymwaura.github.io/GithubSearch-App",
+    githubLink: "https://github.com/LemmyMwaura/GithubSearch-App",
+    stats: ["Angular", "Angular-router", "Github API"],
+  },
 ]
 
 export default projects

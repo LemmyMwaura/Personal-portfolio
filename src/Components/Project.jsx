@@ -4,12 +4,23 @@ import useOnScreen from "../Hooks/useOnScreen"
 //images
 import sudokuImage from "../Assets/Images/Sudoku.jpg"
 import NetflixImage from "../Assets/Images/NetflixClone.jpg"
+import AwwardsImage from "../Assets/Images/AwwardsClone.jpg"
+import GithubSearch from "../Assets/Images/GithubSearch.jpg"
+import DailyNews from "../Assets/Images/DailyNews.jpg"
+import Neighbourhood from "../Assets/Images/Neighbourhood.jpg"
 
 //
 import { HiLink } from "react-icons/hi"
 import { FiGithub } from "react-icons/fi"
 
-const images = [sudokuImage, NetflixImage, sudokuImage, NetflixImage, sudokuImage]
+const images = [
+  sudokuImage,
+  NetflixImage,
+  DailyNews,
+  AwwardsImage,
+  Neighbourhood,
+  GithubSearch,
+]
 
 const ProjectItem = ({ project, total }) => {
   const isOnScreenRef = useRef(null)
