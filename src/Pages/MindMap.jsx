@@ -187,13 +187,13 @@ const MindMap = () => {
                 <div className="item item-2">
                   <h4>Api Design & Development</h4>
                   <p>
-                    Can comfortably build full-fledged APIs that are easy to use and easy to maintain with respect to the Open API specification. This includes routes, serialization, deserialization, error handling, schema validation, models, caching, and more.
+                    Good understanding of the different API protocols (RPC, REST, GRAPHQL) and  Can comfortably build full-fledged APIs that are easy to use and easy to maintain. This includes routes, serialization, deserialization, error handling, schema validation, models, caching, and more.
                   </p>
                 </div>
                 <div className="item item-3">
                   <h4>Rich Foundational Knowledge </h4>
                   <p>
-                    By using my expertise as in Javascript and Python. I can comfortably built robust and scalable applications that are easy to use, maintain and bug free in the most efficient and secure way with an optimization on performance, minimal network calls and also memory.
+                    By using my expertise as in Javascript and Python. I can comfortably built robust and scalable applications that are easy to use, maintain and bug free in the most efficient and secure way with an optimization on performance, mitigated network calls and also memory.
                   </p>
                 </div>
                 <div className="item item-4">
