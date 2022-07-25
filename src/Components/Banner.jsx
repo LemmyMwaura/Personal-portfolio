@@ -74,7 +74,7 @@ const BannerRowTop = ({ title }) => {
         }}
       >
         <span className="banner-top--info">
-          We are specialised in setting up the foundation of your brand and
+          I am Specialised in setting up the foundation of your brand/company and
           setting you up for success.
         </span>
       </motion.div>
