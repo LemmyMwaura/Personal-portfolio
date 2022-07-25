@@ -181,7 +181,7 @@ const MindMap = () => {
                     I always strive to create memorable experiences that are
                     aesthetically appealing, functional and distinctive. Whether
                     it's inspiring marketing websites, convincing e-commerce
-                    sites or apps that are truly beneficial to users without compensating on the user experience.
+                    sites or apps that are truly beneficial to users without compensating for the user experience.
                   </p>
                 </div>
                 <div className="item item-2">
@@ -193,7 +193,7 @@ const MindMap = () => {
                 <div className="item item-3">
                   <h4>Rich Foundational Knowledge </h4>
                   <p>
-                    By using my expertise as in Javascript and Python. I can comfortably built robust and scalable applications that are easy to use, maintain and bug free in the most efficient and secure way with an optimization on performance, mitigated network calls and also memory.
+                  By using my expertise in Javascript and Python. I can comfortably build robust and scalable applications that are easy to use, maintain and bug-free in the most efficient and secure way with optimization of performance, mitigated network calls and also memory.
                   </p>
                 </div>
                 <div className="item item-4">

@@ -5,7 +5,7 @@ My portfolio. version 1.0.0
 ___
 
 ### Screenshot
-![Website](src/assets/images/portfolio.png)
+![Website](src/assets/images/image.png)
 
 ___
 ---
