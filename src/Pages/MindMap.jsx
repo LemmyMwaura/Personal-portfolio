@@ -85,30 +85,32 @@ const MindMap = () => {
                   <div className="details detail-1">
                     <span> - </span>
                     <span id="content">
-                      Hello! My name is Brittany and I enjoy creating things
-                      that live on the internet. My interest in web development
-                      started back in 2012 when I decided to try editing custom
-                      Tumblr themes — turns out hacking together a custom reblog
-                      button taught me a lot about HTML & CSS! Fast-forward to
-                      today, and I’ve had the privilege of working at an
-                      advertising agency, a start-up, a huge corporation, and a
-                      student-led design studio.
+                      Hi, I'm Lemmy Mwaura a full-stack web developer and I
+                      enjoy creating beautiful things that live on the internet.
+                      I have a lot of passion for software development and that
+                      includes all aspects of it, from front-end development (UI
+                      design, animations, effects, dynamic-responsive design) to
+                      API design and back-end development. I also have a rich
+                      foundational knowledge in system design and Data
+                      Structures & Algorithms.
                     </span>
                   </div>
                   <div className="details detail-2">
                     <span> - </span>
                     <span id="content">
-                      My main focus these days is building accessible, inclusive
-                      products and digital experiences at Upstatement for a
-                      variety of clients. I also recently launched a course that
-                      covers everything you need to build a web app with the
-                      Spotify API using Node & React.
+                      My main focus at the moment is creating intuitive digital
+                      user experiences on the web for my clients. I'm
+                      well-organised, proficient, passionate, intelligent and a
+                      strategic team player skilled in problem-solving with a
+                      rich solid back background in Javascript(Vanilla, React,
+                      Angular), Typescript, Python(Flask, Fast API, Django) and
+                      currently adding Go lang and it's frameworks to my stack.
                     </span>
                   </div>
                   <div className="details detail-3">
                     <span> - </span>
                     <span id="content">
-                      Here are a few technologies ive been working with
+                      Here are a few technologies i've been working with
                       recently:
                     </span>
                   </div>
@@ -179,26 +181,19 @@ const MindMap = () => {
                     I always strive to create memorable experiences that are
                     aesthetically appealing, functional and distinctive. Whether
                     it's inspiring marketing websites, convincing e-commerce
-                    sites or apps that are truly beneficial to users.
+                    sites or apps that are truly beneficial to users without compensating on the user experience.
                   </p>
                 </div>
                 <div className="item item-2">
-                  <h4>Art Direction</h4>
+                  <h4>Api Design & Development</h4>
                   <p>
-                    With my extensive experience in creating everything digital,
-                    I'm able to establish a strong foundation in the choice of
-                    typography, color and photography to ensure that users
-                    perceive the brand and presence in a consistent way.
+                    Can comfortably build full-fledged APIs that are easy to use and easy to maintain with respect to the Open API specification. This includes routes, serialization, deserialization, error handling, schema validation, models, caching, and more.
                   </p>
                 </div>
                 <div className="item item-3">
-                  <h4>Visual Design</h4>
+                  <h4>Rich Foundational Knowledge </h4>
                   <p>
-                    By using my expertise as a digital designer, I make sure
-                    that a visual identity can be used to its full extent
-                    throughout all touchpoints in an accessible and
-                    user-friendly way. Not just timeless, but usable in todays
-                    digital world.
+                    By using my expertise as in Javascript and Python. I can comfortably built robust and scalable applications that are easy to use, maintain and bug free in the most efficient and secure way with an optimization on performance, minimal network calls and also memory.
                   </p>
                 </div>
                 <div className="item item-4">
