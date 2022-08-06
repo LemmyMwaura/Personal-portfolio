@@ -1,11 +1,11 @@
-import {timeline} from 'motion'
-import {useEffect, useRef} from 'react'
-import {useDispatch} from 'react-redux'
-import loaderAnimation from '../Animations/Timelines/Loader'
+import { timeline } from "motion"
+import { useEffect, useRef } from "react"
+import { useDispatch } from "react-redux"
+import loaderAnimation from "../Animations/Timelines/Loader"
 
 //Slices
-import {hideLoader} from '../Features/LoaderSlice'
-import {showPage} from '../Features/ShowPageSlice'
+import { hideLoader } from "../Features/LoaderSlice"
+import { showPage } from "../Features/ShowPageSlice"
 
 const Loader = () => {
   const dispatch = useDispatch()
@@ -15,8 +15,8 @@ const Loader = () => {
   const loaderBgRef = useRef(null)
 
   const getSectionHeight = (el) => {
-    const {height} = el.getBoundingClientRect()
-    const {childElementCount} = el
+    const { height } = el.getBoundingClientRect()
+    const { childElementCount } = el
 
     return height / childElementCount
   }
@@ -27,23 +27,33 @@ const Loader = () => {
   }
 
   useEffect(() => {
-    if (countRef.current && countRef2.current) {
-      const transformAmount = getSectionHeight(countRef.current)
-      const sequence = new Array(4).fill('').flatMap((_, index) => [
-        [countRef.current, {y: `-${transformAmount * index + 1}px`}],
-        [
-          countRef2.current,
-          {y: `-${transformAmount * index + 1}px`},
-          {at: '-0.85'},
-        ],
-      ])
+    const loaderTimeout = setTimeout(() => {
+      if (countRef.current && countRef2.current) {
+        const transformAmount = getSectionHeight(countRef.current)
+        const sequence = new Array(4).fill("").flatMap((_, index) => [
+          [countRef.current, { y: `-${transformAmount * index + 1}px` }],
+          [
+            countRef2.current,
+            { y: `-${transformAmount * index + 1}px` },
+            { at: "-0.85" },
+          ],
+        ])
 
-      timeline(sequence, {
-        defaultOptions: {easing: [0.77, 0, 0.175, 1], duration: 1},
-      })
+        timeline(sequence, {
+          defaultOptions: { easing: [0.77, 0, 0.175, 1], duration: 1 },
+        })
 
-      loaderAnimation(countRef, countRef2, loaderRef, loaderBgRef, resetLoader)
-    }
+        loaderAnimation(
+          countRef,
+          countRef2,
+          loaderRef,
+          loaderBgRef,
+          resetLoader,
+        )
+      }
+    }, 0)
+
+    return () => clearTimeout(loaderTimeout)
   }, [])
 
   return (
