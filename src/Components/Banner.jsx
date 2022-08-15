@@ -134,7 +134,7 @@ const BannerFooter = () => {
           href="https://www.linkedin.com/in/lemmymwaura/"
           target="_blank"
         >
-          Linkedln
+          Linkedin
         </motion.a>
       </motion.div>
       <motion.div

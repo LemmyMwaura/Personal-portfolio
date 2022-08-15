@@ -24,7 +24,7 @@ const projects = [
     description:
       "My recreation of Netflix - Not the average clone - check it out. Build to handle high volume of requests",
     status: "active",
-    liveLink: "https://netflix-clone-f26fe.web.app/",
+    liveLink: "https://fakeflix-9416f.web.app/",
     githubLink: "https://github.com/LemmyMwaura/Netflix-Clone",
     stats: ["React", "React-Query", "Redux", "Firebase", "vite"],
   },

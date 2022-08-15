@@ -27,7 +27,7 @@ const Loader = () => {
   }
 
   useEffect(() => {
-    const loaderTimeout = setTimeout(() => {
+    const myReqAnimation = requestAnimationFrame(() => {
       if (countRef.current && countRef2.current) {
         const transformAmount = getSectionHeight(countRef.current)
         const sequence = new Array(4).fill("").flatMap((_, index) => [
@@ -53,7 +53,7 @@ const Loader = () => {
       }
     }, 0)
 
-    return () => clearTimeout(loaderTimeout)
+    return () => cancelAnimationFrame(myReqAnimation)
   }, [])
 
   return (
