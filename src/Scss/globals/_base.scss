@@ -1,11 +1,15 @@
 @use '../abstracts/' as ab;
 
+html{
+  scroll-behavior: smooth;
+}
+
 body{
   background-color: ab.$main-color;
+  overflow-x: hidden;
 }
 
 .container{
-  // width:min(100vw, 1400px);
   margin: 0 auto;
 }
 
@@ -38,8 +42,4 @@ a:hover::after{
 
 a:hover::before{
   width: 50%;
-}
-
-::-webkit-scrollbar {
-  display: none;
 }
