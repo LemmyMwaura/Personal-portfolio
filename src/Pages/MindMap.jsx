@@ -1,13 +1,5 @@
-import { useEffect, useRef, useState } from "react"
 import { useSelector } from "react-redux"
-import { useLocation } from "react-router-dom"
 import { Link } from "react-router-dom"
-import { motion } from "framer-motion"
-
-//components + variants
-import Transition from "../Components/Transition"
-import useLocoScroll from "../Hooks/useLocoScroll"
-import exitVariant from "../Animations/Variants/ExitVariants"
 
 //svg + icons
 import Underline from "../Assets/SVG/Underline"
@@ -36,46 +28,15 @@ import {
 
 const MindMap = () => {
   const showPageData = useSelector(({ showPage }) => showPage.show)
-  const [showTransition, setShowTransition] = useState(false)
-  const [atMindRoute, setAtMindRoute] = useState(false)
-  const location = useLocation()
-  const mindRef = useRef(null)
-  const [locoScrollRef] = useLocoScroll(
-    mindRef,
-    location.pathname,
-    showPageData,
-    false,
-  )
-
-  useEffect(() => {
-    if (location.pathname !== "/") {
-      setShowTransition(true)
-      setAtMindRoute(true)
-    }
-  }, [location.pathname])
-
-  useEffect(() => {
-    if (!showPageData) return
-
-    const initLocoScroll = setTimeout(() => {
-      locoScrollRef.current?.update()
-    }, 300)
-
-    return () => clearTimeout(initLocoScroll)
-  }, [locoScrollRef.current, showPageData])
 
   return (
     <div>
-      {showTransition && <Transition pagename="MIND-MAP" />}
       {showPageData && (
-        <motion.div variants={atMindRoute ? exitVariant : ""} exit="exit">
+        <div id="mind-map">
           <section
-            ref={mindRef}
             style={{
-              paddingTop: atMindRoute ? "4rem" : "2rem",
+              paddingTop: "2rem",
             }}
-            data-scroll-section
-            data-scroll-speed="-1"
             className="mindmap-container "
           >
             <div className="mindmap-content">
@@ -205,7 +166,7 @@ const MindMap = () => {
               </div>
             </div>
           </section>
-        </motion.div>
+        </div>
       )}
     </div>
   )

@@ -59,8 +59,8 @@ const ProjectItem = ({ project, total }) => {
           </div>
           <p className="project-info-desc">{project.description}</p>
           <div className="project-stats">
-            {project.stats.map((stat) => {
-              return <span className="project-info-stat">{stat}</span>
+            {project.stats.map((stat, index) => {
+              return <span key={index} className="project-info-stat">{stat}</span>
             })}
           </div>
         </div>
