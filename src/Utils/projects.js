@@ -18,16 +18,16 @@ const projects = [
     githubLink: "https://github.com/LemmyMwaura/Sudoku-Solver-Visualizer",
     stats: ["React", "Vite"],
   },
-  {
-    id: generate.next().value,
-    name: "Netflix Clone",
-    description:
-      "My recreation of Netflix - Not the average clone - check it out. Build to handle high volume of requests",
-    status: "active",
-    liveLink: "https://fakeflix-9416f.web.app/",
-    githubLink: "https://github.com/LemmyMwaura/Netflix-Clone",
-    stats: ["React", "React-Query", "Redux", "Firebase", "vite"],
-  },
+  // {
+  //   id: generate.next().value,
+  //   name: "Netflix Clone",
+  //   description:
+  //     "My recreation of Netflix - Not the average clone - check it out. Build to handle high volume of requests",
+  //   status: "active",
+  //   liveLink: "https://fakeflix-9416f.web.app/",
+  //   githubLink: "https://github.com/LemmyMwaura/Netflix-Clone",
+  //   stats: ["React", "React-Query", "Redux", "Firebase", "vite"],
+  // },
   {
     id: generate.next().value,
     name: "The Daily News",
@@ -40,7 +40,7 @@ const projects = [
   },
   {
     id: generate.next().value,
-    name: "Awwards Clone",
+    name: "Awwards Remake",
     description: "My recreation of the famous Awwards website.",
     status: "active",
     liveLink: "https://awwwardsclonebylemmymwaura.herokuapp.com/",
