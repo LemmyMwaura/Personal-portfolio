@@ -34,11 +34,6 @@
     }
   }
 
-  .active{
-    cursor: not-allowed;
-    pointer-events: none;
-  }
-
   .active::after {
     width: 50%;
   }
@@ -61,6 +56,9 @@
 
   .mobile-nav {
     display: none;
+    transform: translateY(-100%);
+    transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
     a::after,
     a::before {
       height: 4px;

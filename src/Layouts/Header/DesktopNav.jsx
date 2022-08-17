@@ -1,6 +1,5 @@
-import { motion } from "framer-motion"
-import NavLinks from "./NavLinks"
 import { useLocation } from "react-router-dom"
+import { motion } from "framer-motion"
 
 const DesktopNav = () => {
   const location = useLocation()
@@ -16,15 +15,12 @@ const DesktopNav = () => {
         duration: 1,
         delay: 2,
       }}
-      exit={{
-        y: -20,
-        transition: {
-          ease: "easeOut",
-          duration: 1.5,
-        },
-      }}
     >
-      <NavLinks />
+      <div className="nav-group">
+        <a href="#mind-map">MIND-MAP</a>
+        <a href="#projects">PROJECTS</a>
+        <a href="#contact">CONTACT</a>
+      </div>
     </motion.div>
   )
 }
