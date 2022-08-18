@@ -5,23 +5,31 @@
   min-height: calc(100vh);
   overscroll-behavior: none;
 
+  @include util.breakpoint-down(mediumLarge) {
+    overflow-x: hidden;
+  }
+
+  .title {
+    font-size: clamp(4rem, 4rem + 3vw, 6rem);
+    font-weight: bold;
+    margin: auto;
+    font-family: "Cormorant Upright", serif;
+
+    @include util.breakpoint-down(midSmall) {
+      margin-bottom: 5vh;
+    }
+  }
+
   .projects-wrapper {
     position: relative;
     height: 100%;
     padding: 10vh 0;
     display: flex;
-    flex-direction: column;
-    gap: 5rem;
+    flex-wrap: nowrap;
 
-    .title {
-      font-size: clamp(4rem, 4rem + 3vw, 6rem);
-      font-weight: bold;
-      align-self: center;
-      font-family: "Cormorant Upright", serif;
-
-      @include util.breakpoint-down(midSmall) {
-        margin-bottom: 5vh;
-      }
+    @include util.breakpoint-down(mediumLarge) {
+      flex-direction: column;
+      gap:5rem;
     }
 
     .project-wrapper {
@@ -31,6 +39,7 @@
       height: 90vh;
       width: 100vw;
       display: grid;
+      grid-template-columns: 20vw auto 20vw;
       place-content: center;
 
       @include util.breakpoint-down(mediumLarge) {

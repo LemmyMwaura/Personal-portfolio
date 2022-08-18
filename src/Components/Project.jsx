@@ -3,7 +3,6 @@ import useOnScreen from "../Hooks/useOnScreen"
 
 //images
 import sudokuImage from "../Assets/Images/Sudoku.jpg"
-import NetflixImage from "../Assets/Images/NetflixClone.jpg"
 import AwwardsImage from "../Assets/Images/AwwardsClone.jpg"
 import GithubSearch from "../Assets/Images/GithubSearch.jpg"
 import DailyNews from "../Assets/Images/DailyNews.jpg"
@@ -15,7 +14,6 @@ import { FiGithub } from "react-icons/fi"
 
 const images = [
   sudokuImage,
-  NetflixImage,
   DailyNews,
   AwwardsImage,
   Neighbourhood,
@@ -36,6 +34,7 @@ const ProjectItem = ({ project, total }) => {
         <span className="divider" />
         <span>{total}</span>
       </div>
+      <div/>
       <div className="project-item">
         <div className={`project-item-info ${onScreen && "is-reveal"}`}>
           <div className="title-wrapper">
@@ -71,6 +70,7 @@ const ProjectItem = ({ project, total }) => {
           }}
         ></div>
       </div>
+      <div/>
     </div>
   )
 }

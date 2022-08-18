@@ -160,7 +160,7 @@ const MindMap = () => {
                 <div className="item item-4">
                   <GiArrowDunk className="arrow-icon" />
                   <button className="btn btn-about">
-                    <Link to="/projects">Projects</Link>
+                    <a href="#projects">Projects</a>
                   </button>
                 </div>
               </div>
